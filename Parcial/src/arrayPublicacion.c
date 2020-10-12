@@ -40,6 +40,7 @@ int publicacion_initArray(Publicacion list[], int len)
 		    list[i].idCliente = 0;/////////NO TOCAR////////
 		    list[i].numeroRubro = 0;
 		    list[i].estPubli = -1;
+		    strcpy(list[i].descripcionEstado,"PAUSADO");
 		    strcpy(list[i].texto,"VACIO");
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 		}
@@ -67,6 +68,7 @@ int publicacion_addArray(Publicacion* list, int len, int id,
 		      int idCliente,
       		      int numeroRubro,
    		          int estPubli,
+				  char* descripcionEstadoPubli,
 				  char* texto
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 		      )
@@ -85,6 +87,7 @@ int publicacion_addArray(Publicacion* list, int len, int id,
 	      list[i].idCliente = idCliente;/////////NO TOCAR////////
 	      list[i].numeroRubro = numeroRubro;
           list[i].estPubli = estPubli;
+          strcpy(list[i].descripcionEstado,descripcionEstadoPubli);
           strcpy(list[i].texto,texto);
 
 
@@ -115,16 +118,14 @@ void publicacion_headerArray(void)
 	    "%*s"
 	    "%*s"
 	    "%*s"
+    	"%*s"
 	    "%*s",
 	   -5, " ID",
 	   -13, " ID CLIENTE",
 	   -14," NUM RUBRO",
 	   -12," ESTADO PUBL.",
+	   -12," DESC EST. PUBL.",
 	   -12," TEXTO"
-//	   -12," NOMBRE2",
-//	   -12," FLOTANTE1",
-//	   -12," FLOTANTE2",
-//	     0," NUMERO_LARGO"
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 	   "\n-----------------------------------------------------\n");
 }
@@ -159,6 +160,7 @@ int publicacion_printForId  (Publicacion *list, int len, int id)
   				       "%-12d "
   				       "%-10d "
   				       "%-13d "
+  					   "%-13s "
   				       "%-13s "
   				       "\n"
 
@@ -167,6 +169,7 @@ int publicacion_printForId  (Publicacion *list, int len, int id)
 				   ,list[i].idCliente
 				   ,list[i].numeroRubro
 				   ,list[i].estPubli
+				   ,list[i].descripcionEstado
 				   ,list[i].texto
 
 
@@ -203,6 +206,8 @@ int publicacion_removeArray(Publicacion* list, int len, int id)
 	  if (list[i].id == id)
 	    {
 	      list[i].isEmpty = TRUE;
+	      strcpy(list[i].descripcionEstado,"PAUSADA");
+	      list[i].estPubli = -1;
 	      retorno = 0;
 	    }
 	}
@@ -322,6 +327,7 @@ int publicacion_printArray(Publicacion* list, int length)
 				    " %-10d "
 				    "%-12d "
 					"%-12d "
+					"%-15s "
 					"%-13s "
 				    " \n"
 
@@ -330,6 +336,7 @@ int publicacion_printArray(Publicacion* list, int length)
 				    ,list[i].idCliente
 				    ,list[i].numeroRubro
 					,list[i].estPubli
+					,list[i].descripcionEstado
 					,list[i].texto
 				   );
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
@@ -435,11 +442,13 @@ int publicacion_chargeArray (Publicacion *list, int len)
 	{
     	  auxPublicacion.id = utn_idIncremental ();
     	  auxPublicacion.estPubli = ACTIVA;
+    	  strcpy(auxPublicacion.descripcionEstado,"ACTIVA");
 	  if(publicacion_addArray (list, len,
 			  auxPublicacion.id,///////NO TOCAR////////////////////////
 			  auxPublicacion.idCliente,
 			  auxPublicacion.numeroRubro,
 			  auxPublicacion.estPubli,
+			  auxPublicacion.descripcionEstado,
 			  auxPublicacion.texto
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 				)==0)
@@ -657,7 +666,7 @@ int publicacion_prepareForDelete (Publicacion *list, int len)
 
   if (list != NULL && len > 0)
     {
-      utn_getNumero ("\nIngrese ID de la ENTIDAD: ", "\nError al ingresar. ", &bufferID, 1, QTY_PUBLICACION, 5);
+      utn_getNumero ("\nIngrese ID de la publicacion: ", "\nError al ingresar. ", &bufferID, 1, QTY_PUBLICACION, 5);
       if (publicacion_findArrayById (list, len, bufferID) != -1)
 	{
 	  publicacion_printForId (list, len, bufferID);

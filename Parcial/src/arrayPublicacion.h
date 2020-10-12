@@ -25,12 +25,8 @@ int isEmpty;
 int idCliente;
 int numeroRubro;
 int estPubli;
+char descripcionEstado[10];
 char texto[LONG_NAME_PUBLICACION];
-//char NOMBRE2[LONG_NAME_PUBLICACION];
-//float FLOTANTE1;
-//float FLOTANTE2;
-//long long int NUMERO_LARGO;
-
 
 
 }typedef Publicacion;//SOLO SE DEBE HACER REFACTOR EN EL NOMBRE DE LA ENTIDAD
@@ -45,6 +41,7 @@ int publicacion_addArray(Publicacion* list, int len, int id,////********MODIFICA
 		      int idCliente,
      	      int numeroRubro,
 			  int estPubli,
+			  char * descripcionEstadoPubli,
 			  char* texo
 ///////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 		      );
