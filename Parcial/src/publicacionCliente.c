@@ -396,8 +396,9 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 
 	int i;
 	int j;
-	int contador=0;
-	int max=0;
+	int contador;
+	int max;
+	int flag = 0;
 	int clienteAMostrar;
 
 	for (i = 0; i < lenC; i++)
@@ -414,10 +415,13 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 				}
 			}
 		}
-		if (contador > max)
+		if (contador > max || flag ==0)
 			{
 			max = contador;
 				clienteAMostrar = listC[i].id;
+
+
+				flag=1;
 
 
 			}
@@ -450,6 +454,7 @@ void calcularRubroPublicaciones(Publicacion* listP,int lenP,int *autRubro)
 {
 int contador = 0;
 int rubroMax = 0;
+int flag = 0;
 int rubroAMostrar =0;
 int i;
 int j;
@@ -464,10 +469,11 @@ int j;
 				contador++;
 			}
 		}
-		if (contador > rubroMax)
+		if (contador > rubroMax || flag == 0)
 		{
 			rubroAMostrar = i;
 			rubroMax = contador;
+			flag=1;
 		}
 	}
 	*autRubro = rubroAMostrar;
