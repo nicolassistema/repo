@@ -33,9 +33,9 @@ int rubroConMasAvisos;
 Cliente cliente_list[QTY_CLIENTE];
 Publicacion publicacion_list[QTY_PUBLICACION];
 publicacion_initArray(publicacion_list, QTY_PUBLICACION);
-publicacion_hardcodDatosArray(publicacion_list, QTY_PUBLICACION_HARDCOD_TEST);
+//publicacion_hardcodDatosArray(publicacion_list, QTY_PUBLICACION_HARDCOD_TEST);
 cliente_initArray(cliente_list, QTY_CLIENTE);
-cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
+//cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
   do
     {
       printf ("\n*********"
@@ -50,11 +50,11 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
     	  "6-Reanudar publicacion\n"
     	  "7-Imprimir Clientes\n"
     	  "8-Informar\n"
-//	      "9-Informar general\n"
-	      "9-Salir\n\n");
+	      "9-Informar general\n"
+	      "10-Salir\n\n");
 
 
-      if (utn_getNumero ("\nPor favor ingrese una opcion: ","\nOpcion Invalida. ", &opcion, 1, 9, 3) != -1)
+      if (utn_getNumero ("\nPor favor ingrese una opcion: ","\nOpcion Invalida. ", &opcion, 1, 10, 3) != -1)
 	{
 
     	  switch (opcion)
@@ -232,7 +232,7 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 										  printf ("\n*****************************************\n");
 										  }
 	   	      break;
-/*	    case 9:
+    case 9:
 	    	///BORRAR LUEGO DE FINALZAR DESARROLLO////////////////////////////////////
 		   		 printf ("\n*****************************************************");
 		   		 printf ("\n************    INFORMAR GENERAL     *************\n");
@@ -242,8 +242,8 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 		   		 cliente_headerArray();
 		   		 cliente_printArray(cliente_list, QTY_CLIENTE);
 		   	      break;
-*/
-	    case 9:
+
+	    case 10:
 			  printf("\nEL PROGRAMA SE CERRO CON EXITO!\n");
 			  system ("pause");
 			  return EXIT_SUCCESS;
@@ -258,7 +258,7 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 	  printf ("\nSE TERMINARON LOS REINTENTOS!\n");
 	  printf ("\n*****************************\n");
 	}
-    }while (opcion != 9);
+    }while (opcion != 10);
 	return EXIT_SUCCESS;
 }
 
