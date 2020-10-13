@@ -202,6 +202,8 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 															printf ("*****************************************************\n");
 															CalcularAvisosClientes(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE, &clienteMasAvisos);
 															printf("\nEL CLIENTE CON MAS AVISOS ES EL: %d\n", clienteMasAvisos	);
+															cliente_printForId(cliente_list,QTY_CLIENTE, clienteMasAvisos);
+
 															break;
 														case 2:
 															printf ("\n*****************************************************");

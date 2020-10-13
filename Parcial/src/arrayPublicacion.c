@@ -320,7 +320,7 @@ int publicacion_sortArray(Publicacion* list, int len, int order)
 	      if ((order == 0 && strcmp (list[i].NOMBRE1, list[i + 1].NOMBRE1) < 0)||
 		  (order == 1 && strcmp (list[i].NOMBRE1, list[i + 1].NOMBRE1) > 0))
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-		  //*******************En caso de ordenamiento por 2 condiciones, descomentar lo de abajo
+
 //		  ||(0==strcmp (list[i].lastName, list[i + 1].lastName) &&
 //		      (((list[i].sector > list[i + 1].sector)&&(order == 1))
 //			  ||((list[i].sector < list[i + 1].sector) &&(order == 0)))))
