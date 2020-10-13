@@ -349,6 +349,8 @@ int publicacion_printArray(Publicacion* list, int length)
 
 
 
+
+
 /** \brief Buscar espacio libre en el array
  *
  * \param list Employee*
@@ -375,6 +377,27 @@ int publicacion_searchFree (Publicacion *list, int len)
 	}
     }
   return retorno;
+}
+
+
+
+
+
+int publicacion_isPaused(Publicacion* list, int limit, int id)
+{
+	int retorno = ACTIVA;
+	int i;
+	if (list != NULL && list > 0)
+	{
+		for (i = 0; i < limit; i++)
+		{
+			if (list[i].id == id && list[i].estPubli == PAUSADA && list[i].isEmpty == FALSE)
+			{
+				retorno = PAUSADA;
+			}
+		}
+	}
+	return retorno;
 }
 
 

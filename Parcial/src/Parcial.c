@@ -29,7 +29,7 @@ int opcion;
 Cliente cliente_list[QTY_CLIENTE];
 Publicacion publicacion_list[QTY_PUBLICACION];
 publicacion_initArray(publicacion_list, QTY_PUBLICACION);
-//publicacion_hardcodDatosArray(publicacion_list, QTY_PUBLICACION_HARDCOD_TEST);
+publicacion_hardcodDatosArray(publicacion_list, QTY_PUBLICACION_HARDCOD_TEST);
 cliente_initArray(cliente_list, QTY_CLIENTE);
 cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
   do
@@ -44,7 +44,7 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
     	  "4-Publicar\n"
     	  "5-Pausar publicacion\n"
     	  "6-Reanudar publicacion\n"
-    	  "7-Reanudar publicacion\n"
+    	  "7-Imprimir Clientes\n"
     	  "8-Informar\n"
 	      "9-Informar general\n"
 	      "10-Salir\n\n");
@@ -152,30 +152,28 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 		 printf ("\n*****************************************************");
 		 printf ("\n*****************    PUBLICAR   ********************\n");
 		 printf ("*****************************************************\n");
-
 		 publicacionCliente_chargeArray (publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
-		// publicacion_chargeArray (publicacion_list, QTY_PUBLICACION);
 	      break;
 	    case 5:
 	   		 printf ("\n*****************************************************");
 	   		 printf ("\n**************    PAUSAR PUBLICACION  ***************\n");
 	   		 printf ("*****************************************************\n");
-
+	   		prepararParaPublicacion_pausada (publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
 
 	   	      break;
 	    case 6:
 	   		 printf ("\n*****************************************************");
 	   		 printf ("\n************    REANUDAR PUBLICACION    *************\n");
 	   		 printf ("*****************************************************\n");
-
+	   		prepararParaPublicacion_reanudar (publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
 
 	   	      break;
 	    case 7:
 	   		 printf ("\n*****************************************************");
-	   		 printf ("\n*********    IMPRIMIT CLIENTES    *****************\n");
+	   		 printf ("\n*********    IMPRIMIR CLIENTES    *****************\n");
 	   		 printf ("*****************************************************\n");
-
-
+	   		imprimirClientes (publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
+	   	// imprimaProductoElegido(publicacion_list,QTY_PUBLICACION, 1);
 	   	      break;
 	    case 8:
 	   		 printf ("\n*****************************************************");

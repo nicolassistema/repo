@@ -400,7 +400,6 @@ int cliente_searchFree (Cliente *list, int len)
 
 
 
-
 /** \brief Buscar espacio bacio en el array
  *
  * \param list Employee*

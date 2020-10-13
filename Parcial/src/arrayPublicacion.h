@@ -74,4 +74,10 @@ int publicacion_buscarIndiecePorId (Publicacion *list, int len, int idBuscar, in
 
 
 
+//Punto 5
+
+int publicacion_isPaused(Publicacion* list, int limit, int id);
+
+
+
 #endif /* PUBLICACION_H_ */
