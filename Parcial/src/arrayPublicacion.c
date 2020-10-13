@@ -155,7 +155,6 @@ int publicacion_printForId  (Publicacion *list, int len, int id)
   			{
   				printf(
 //  				       " %-6d "
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
   				       "%-12d " ///NO TOCAR///////
   				       "%-12d "
   				       "%-10d "
@@ -172,8 +171,6 @@ int publicacion_printForId  (Publicacion *list, int len, int id)
 				   ,list[i].descripcionEstado
 				   ,list[i].texto
 
-
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 				    );
   			}
   		}

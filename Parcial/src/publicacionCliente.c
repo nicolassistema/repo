@@ -25,55 +25,67 @@
 
 int publicacionCliente_chargeArray (Publicacion *listP, int lenP,Cliente *listC, int lenC)
 {
-  Publicacion auxPublicacion;
-  int retorno = -1;
+	Publicacion auxPublicacion;
+	int retorno = -1;
 
-  cliente_headerArray();
-  cliente_printArray(listC, QTY_CLIENTE);
-  if (listP != NULL && lenP > 0)
-    {
+	cliente_headerArray();
+	cliente_printArray(listC, QTY_CLIENTE);
+	if (listP != NULL && lenP > 0)
+	{
 ////////////////////	////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-      if (utn_getNumero ("Ingrese id del Cliente: ", "\nError al ingresar. Por favor ", &auxPublicacion.idCliente, 0, 999, 5)!= 0)
-      		{
-      		  return -1;
-      		}
-      if (utn_getNumero ("Ingrese numero de rubro: ", "\nError al ingresar. Por favor ", &auxPublicacion.numeroRubro, 0, 99999, 5)!= 0)
+		do
 		{
-		  return -1;
-		}
-      if (utn_getAlfanumerico ("Ingrese texto: ",  "\nError al ingresar.\n", auxPublicacion.texto, LONG_NAME_PUBLICACION, 5) != 0)
-     		{
-     		  return -1;
-     		}
+			utn_getNumero("Ingrese id del Cliente: ",
+					"\nError al ingresar. Por favor ",
+					&auxPublicacion.idCliente, 0, 100, 5);
 
-      if (utn_getAceptaRechaza ("\nAcepta el ingreso? s/n: ", "ERROR al ingresar opcion. \n", 's', 'n')==1)
+			if (cliente_findArrayById(listC, lenC, auxPublicacion.idCliente)
+					== -1)
+			{
+				printf("\nEL ID NO EXISTE! INGRESE EL ID CORRECTO!\n");
+			}
+		} while (cliente_findArrayById(listC, lenC, auxPublicacion.idCliente)
+				== -1);
+	}
+	if (utn_getNumero("Ingrese numero de rubro: ",
+			"\nError al ingresar. Por favor ", &auxPublicacion.numeroRubro, 0,
+			99999, 5) != 0)
 	{
-    	  auxPublicacion.id = utn_idIncremental ();
-    	  auxPublicacion.estPubli = ACTIVA;
-    	  strcpy(auxPublicacion.descripcionEstado,"ACTIVA");
-	  if(publicacion_addArray (listP, lenP,
-			  auxPublicacion.id,///////NO TOCAR////////////////////////
-			  auxPublicacion.idCliente,
-			  auxPublicacion.numeroRubro,
-			  auxPublicacion.estPubli,
-			  auxPublicacion.descripcionEstado,
-			  auxPublicacion.texto
+		return -1;
+	}
+	if (utn_getAlfanumerico("Ingrese texto: ", "\nError al ingresar.\n",
+			auxPublicacion.texto, LONG_NAME_PUBLICACION, 5) != 0)
+	{
+		return -1;
+	}
+
+	if (utn_getAceptaRechaza("\nAcepta el ingreso? s/n: ",
+			"ERROR al ingresar opcion. \n", 's', 'n') == 1)
+	{
+		auxPublicacion.id = utn_idIncremental2();
+		auxPublicacion.estPubli = ACTIVA;
+		strcpy(auxPublicacion.descripcionEstado, "ACTIVA");
+		if (publicacion_addArray(listP, lenP,
+				auxPublicacion.id, ///////NO TOCAR////////////////////////
+				auxPublicacion.idCliente, auxPublicacion.numeroRubro,
+				auxPublicacion.estPubli, auxPublicacion.descripcionEstado,
+				auxPublicacion.texto
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-				)==0)
-	  {
-	      retorno = 0;
-	  }
-	  publicacion_printForId  (listP,lenP, auxPublicacion.id);
-	  printf ("\n*****************************************************");
-          printf ("\n                    ALTA EXITOSA!                  \n");
-	  printf ("*****************************************************\n\n");
+				) == 0)
+		{
+			retorno = 0;
+		}
+		publicacion_printForId(listP, lenP, auxPublicacion.id);
+		printf("\n*****************************************************");
+		printf("\n                    ALTA EXITOSA!                  \n");
+		printf("*****************************************************\n\n");
 	}
-      else
+	else
 	{
-	  retorno = 0;
+		retorno = 0;
 	}
-    }
-  return retorno;
+
+	return retorno;
 }
 
 
@@ -176,7 +188,6 @@ void reanudarPublicacionForId(Publicacion *listP, int lenP, int id)
 			listP[i].estPubli = ACTIVA;
 			strcpy(listP[i].descripcionEstado,"ACTIVA");
 		}
-
 	}
 }
 
@@ -250,13 +261,13 @@ int imprimaProductoElegido(Publicacion *listP, int lenP, int id)
 							"%-15s "
 							"%-13s "
 							" \n"
-
 					//  ,list[id].isEmpty
-					,
-					listP[i].id                  /////////NO TOCAR//////////////
-					, listP[i].idCliente, listP[i].numeroRubro,
-					listP[i].estPubli, listP[i].descripcionEstado,
-					listP[i].texto);
+					,listP[i].id                  /////////NO TOCAR//////////////
+					,listP[i].idCliente
+					,listP[i].numeroRubro
+					,listP[i].estPubli
+					,listP[i].descripcionEstado
+					,listP[i].texto);
 			retorno = 0;
 		}
 	}

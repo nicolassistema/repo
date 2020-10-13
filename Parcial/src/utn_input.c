@@ -753,7 +753,6 @@ int utn_getAceptaRechaza (char *mensaje, char *mensajeError, char yes, char no)
 }
 
 
-
 //=====================================================================================
 /*
  * idIncremental : Incrementa la variable estatica
@@ -767,6 +766,20 @@ int utn_idIncremental(void)
     static int id = 0;
     id++;
     return id;
+}
+//=====================================================================================
+/*
+ * idIncremental : Incrementa la variable estatica
+ * -
+ *
+ * Retorno: -
+ *
+ */
+int utn_idIncremental2(void)
+{
+    static int id2 = 0;
+    id2++;
+    return id2;
 }
 
 

@@ -21,6 +21,7 @@ int utn_esTelefono(char str[]);
 int utn_getNombre (char *mensaje, char *mensajeError, char *pNombre, int longitud, int reintentos);
 int utn_getAceptaRechaza (char *mensaje, char *mensajeError, char yes, char no);
 int utn_idIncremental(void);
+int utn_idIncremental2(void);
 int utn_getAlfanumerico (char *mensaje, char *mensajeError, char *pNombre, int longitud, int reintentos);
 int utn_getIntLong(long long int* pResultado);
 int utn_getNumeroLong(char* mensaje,char* mensajeError,long long int* pResultado,long long int minimo,long long int maximo,int reintentos);

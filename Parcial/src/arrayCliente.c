@@ -422,6 +422,32 @@ int cliente_isEmpty(Cliente* list, int limit, int index)
 }
 
 
+/** \brief Buscar espacio bacio en el array
+ *
+ * \param list Employee*
+ * \param length int
+ * \return 1 si esta ok - 0 si no
+ *
+ */
+int cliente_isEmptyForId(Cliente* listC, int lenC, int id)
+{
+	int i;
+	int retorno = FALSE;
+
+	if (listC != NULL && lenC > 0)
+	{
+		for (i = 0; i < lenC; i++)
+		{
+			if (listC[i].isEmpty == TRUE && listC[i].id==id)
+			{
+				retorno = TRUE;
+			}
+		}
+	}
+	return retorno;
+}
+
+
 
 /** \brief conjunto  de funcione de entrada de datos por consola
  *
@@ -467,12 +493,14 @@ int cliente_chargeArray (Cliente *list, int len)
 				auxTemplate.cuit
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 				)==0)
+
 	  {
 	      retorno = 0;
 	  }
 	  printf ("\n*****************************************************");
           printf ("\n                    ALTA EXITOSA!                  \n");
 	  printf ("*****************************************************\n\n");
+	  	  cliente_printForId  (list, len, auxTemplate.id);
 	}
       else
 	{
@@ -624,7 +652,7 @@ int cliente_updateArray (Cliente *list, int len)
  			 }
              	     break;
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	 	   case 9:
+	 	   case 4:
 	 		 if(utn_getAceptaRechaza ("\nGrabar cambios? s/n: ", "ERROR al ingresar opcion. \n", 's', 'n')==1)
 	 		   {
 	 		    cliente_bufferToArray (list, &auxCliente,  len, bufferID);
@@ -642,9 +670,9 @@ int cliente_updateArray (Cliente *list, int len)
 	 	  return EXIT_SUCCESS;
 	 	}
 	     }
-	   while (opcion != 10);
+	   while (opcion != 5);
 
-	  if(opcion == 10)
+	  if(opcion == 5)
 	    {
 	      return EXIT_SUCCESS;
 	    }

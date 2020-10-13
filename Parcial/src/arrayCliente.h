@@ -75,7 +75,7 @@ int cliente_flagLimite(Cliente* list, int len);
 int cliente_prepareForDelete (Cliente *list, int len);
 int cliente_isEmpty(Cliente* list, int limit, int index);
 int cliente_buscarIndiecePorId (Cliente *list, int len, int idBuscar, int *pIndice);
-
+int cliente_isEmptyForId(Cliente* listC, int lenC, int id);
 
 
 #endif /* ARRAYCLIENTE_H_ */

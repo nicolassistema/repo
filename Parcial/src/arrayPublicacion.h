@@ -14,7 +14,7 @@
 #define PAUSADA 0
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 #define LONG_NAME_PUBLICACION 64
-#define QTY_PUBLICACION 100
+#define QTY_PUBLICACION 1000
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 
 struct
@@ -77,7 +77,6 @@ int publicacion_buscarIndiecePorId (Publicacion *list, int len, int idBuscar, in
 //Punto 5
 
 int publicacion_isPaused(Publicacion* list, int limit, int id);
-
 int publicacion_printForIdSinHeader  (Publicacion *list, int len, int id);
 
 #endif /* PUBLICACION_H_ */
