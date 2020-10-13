@@ -170,7 +170,6 @@ int prepararParaPublicacion_pausada (Publicacion *listP, int lenP,Cliente *listC
 			printf("\nEl ID NO existe\n");
 		}
 	}
-
 	return retorno;
 }
 
@@ -411,7 +410,7 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 				if(listC[i].id==listP[j].idCliente && listP[j].isEmpty == FALSE )
 				{
 					contador++;
-//					printf("\nCONTADOR:  %d\n",contador);
+
 				}
 			}
 		}
@@ -419,7 +418,7 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 			{
 			max = contador;
 				clienteAMostrar = listC[i].id;
-//				printf("\nCLIENTE: %d\n",listC[i].id);
+
 
 			}
 	}

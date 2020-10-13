@@ -33,9 +33,9 @@ int rubroConMasAvisos;
 Cliente cliente_list[QTY_CLIENTE];
 Publicacion publicacion_list[QTY_PUBLICACION];
 publicacion_initArray(publicacion_list, QTY_PUBLICACION);
-//publicacion_hardcodDatosArray(publicacion_list, QTY_PUBLICACION_HARDCOD_TEST);
+publicacion_hardcodDatosArray(publicacion_list, QTY_PUBLICACION_HARDCOD_TEST);
 cliente_initArray(cliente_list, QTY_CLIENTE);
-//cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
+cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
   do
     {
       printf ("\n*********"
