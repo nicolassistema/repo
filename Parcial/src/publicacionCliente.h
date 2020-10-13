@@ -24,12 +24,20 @@ int prepararParaPublicacion_reanudar (Publicacion *listP, int lenP,Cliente *list
 
 
 //Punto 7
-int imprimirPublicacionesAcitvasXId(Publicacion *listP, int lenP,Cliente *listC, int lenC, int id);
 void  publicacionXid(Publicacion *listP, int lenP,Cliente *listC, int lenC, int *id);
-imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC);
-
-
-
+void imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC);
 int imprimaProductoElegido(Publicacion *listP, int lenP, int id);
+
+//punto4
+void publicacionesPorCLiente(Publicacion * listP, int lenP,Cliente * listC, int lenC, int id);
+int borradoEnCascadaCLientePublicacion(Publicacion * listP, int lenP,Cliente * listC, int lenC);
+void publicacionesPorCLienteABorrar(Publicacion * listP, int lenP,Cliente * listC, int lenC, int id);
+
+
+//Punto 8
+
+
+
+
 
 #endif /* PUBLICACIONCLIENTE_H_ */

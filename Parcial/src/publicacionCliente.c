@@ -231,200 +231,111 @@ int prepararParaPublicacion_reanudar (Publicacion *listP, int lenP,Cliente *list
 
 //Punto 7
 
-
-/*
-int imprimirPublicacionesAcitvasXId(Publicacion *listP, int lenP,Cliente *listC, int lenC, int id)
-{
-	int retorno = -1;
-	int i;
-	int j;
-
-	if (listP != NULL && listP > 0)
-	{
-		for (i = 0; i < lenP; i++)
-		{
-			if (listP[i].id == id && listP[i].isEmpty == FALSE)
-					//&& listP[i].estPubli == ACTIVA)
-			{
-
-				for (j = 0; j < lenC; j++)
-				{
-					if (listC[j].id == listP[i].idCliente)
-					{
-						printf(
-						////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-										  //  " %-6d "
-										    " %-6d "/////////NO TOCAR//////////////
-										    " %-10d "
-										    "%-12d "
-											"%-12d "
-											"%-15s "
-											"%-13s "
-										    " \n"
-
-										  //  ,list[i].isEmpty
-										    ,listP[i].id/////////NO TOCAR//////////////
-										    ,listP[i].idCliente
-										    ,listP[i].numeroRubro
-											,listP[i].estPubli
-											,listP[i].descripcionEstado
-											,listP[i].texto
-										   );
-					}
-				}
-			}
-		}
-		retorno = 0;
-	}
-	return retorno;
-}
-*/
-
-
 int imprimaProductoElegido(Publicacion *listP, int lenP, int id)
 {
-    int retorno = -1;
-int i;
-
-    for(i=0;i<lenP;i++)
-    {
-        if(listP[i].id==id && listP[i].isEmpty == FALSE)
-        {
-
-
-         printf(
-                        ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-                                          //  " %-6d "
-                                            " %-6d "/////////NO TOCAR//////////////
-                                            " %-10d "
-                                            "%-12d "
-                                            "%-12d "
-                                            "%-15s "
-                                            "%-13s "
-                                            " \n"
-
-                                          //  ,list[id].isEmpty
-                                            ,listP[i].id/////////NO TOCAR//////////////
-                                            ,listP[i].idCliente
-                                            ,listP[i].numeroRubro
-                                            ,listP[i].estPubli
-                                            ,listP[i].descripcionEstado
-                                            ,listP[i].texto
-                                           );
-         retorno = 0;
-        }
-
-    }
-
-return retorno;
-}
-
-/*
-void  publicacionXid(Publicacion *listP, int lenP,Cliente *listC, int lenC, int *id)
-{
+	int retorno = -1;
 	int i;
 
 	for (i = 0; i < lenP; i++)
 	{
-		if (id == listP[i].id && listP[i].isEmpty == FALSE)
+		if (listP[i].id == id && listP[i].isEmpty == FALSE)
 		{
-			imprimirPublicacionesAcitvasXId(listP,lenP,listC, lenC, listP[i].id);
+			printf(
+					////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
+					//  " %-6d "
+					" %-6d "/////////NO TOCAR//////////////
+							" %-10d "
+							"%-12d "
+							"%-12d "
+							"%-15s "
+							"%-13s "
+							" \n"
+
+					//  ,list[id].isEmpty
+					,
+					listP[i].id                  /////////NO TOCAR//////////////
+					, listP[i].idCliente, listP[i].numeroRubro,
+					listP[i].estPubli, listP[i].descripcionEstado,
+					listP[i].texto);
+			retorno = 0;
+		}
+	}
+	return retorno;
+}
+
+
+
+
+imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC)
+{
+	int i;
+	int j;
+	int conPublicacionesActivas;
+
+	for (i = 0; i < lenC; i++)
+	{
+		conPublicacionesActivas = 0;
+		if (listC[i].id != 0)
+		{
+			cliente_printForId(listC, lenC, listC[i].id);
+			publicacion_headerArray();
+
+			for (j = 0; j < lenP; j++)
+			{
+				if (listC[i].isEmpty == FALSE&& listP[j].idCliente == listC[i].id)
+				{
+					conPublicacionesActivas++;
+					imprimaProductoElegido(listP, lenP, listP[j].id);
+				}
+			}
+			printf("\n%s %d\n\n\n", "Publicaciones activas",conPublicacionesActivas);
+			printf("*********************************************************************************************");
+
 		}
 	}
 }
-*/
 
 
-/*
-imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC)
+//Punto 4
+void publicacionesPorCLiente(Publicacion * listP, int lenP,Cliente * listC, int lenC, int id)
 {
-int i;
-int j;
-int n;
-int id;
-
-	if (listP != NULL && lenP > 0)
+	int i;
+	int j;
+	publicacion_headerArray();
+	for(i=0;i<lenC; i++)
+	{
+		if(listC[i].id == id && listC[i].isEmpty==FALSE )
 		{
-
-
-		for (i = 0; i < lenC; i++)
+			for(j=0;j<lenP;j++)
+			{
+				if(listP[j].idCliente == listC[i].id && listP[j].isEmpty == FALSE )
 				{
-
-			for (j = 0; j < lenP; j++)
-						{
-				         if (listC[i].isEmpty == FALSE && listP[j].idCliente == listC[i].id)
-							{
-				        	 cliente_printForId  (listC,lenC,  listC[i].id);
-								break;
-							}
-						}
-
-
-			for (n = 0; n <= lenC; n++)
-					{
-						if (listC[n].isEmpty == FALSE && listP[j].idCliente == listC[n].id)
-						{
-
-
-//								printf("\nIMPRIMO CANTIDAD DE VECES POR CLIENTE\n");
-
-
-
-							publicacion_headerArray();
-
-
-							id = listP[j].id;
-							if (publicacion_findArrayById (listC, lenC,  id) != -1)
-							{
-								imprimirPublicacionesAcitvasXId(listP,lenP,listC, lenC, listP[j].id);
-							}
-							else
-							{
-								printf("\nEl ID NO existe\n");
-							}
-
-						}
-					}
+					publicacion_printForIdSinHeader  (listP, lenP, listP[j].id);
 				}
+			}
 		}
+	}
 }
 
-*/
 
-
-imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC)
+void publicacionesPorCLienteABorrar(Publicacion * listP, int lenP,Cliente * listC, int lenC, int id)
 {
+	int i;
+	int j;
 
-int i;
-int j;
-int conPublicacionesActivas;
-
-        for (i = 0; i < lenC; i++)
-                {
-                conPublicacionesActivas = 0;
-
-                if(listC[i].id!=0){
-                            cliente_printForId  (listC,lenC,  listC[i].id);
-                            publicacion_headerArray();
-                            int mostroAlguno = 0;
-                            for (j = 0; j < lenP; j++)
-                                        {
-                                           if (listC[i].isEmpty == FALSE && listP[j].idCliente == listC[i].id )
-                                                    {
-                                                        mostroAlguno = 1;
-                                                        conPublicacionesActivas++;
-
-                                                        imprimaProductoElegido(listP,lenP, listP[j].id);
-                                                    }
-                                        }
-                                if(mostroAlguno==0){
-                                }
-
-                               printf("\n%s %d\n\n\n","Publicaciones activas",conPublicacionesActivas);
-                               printf("*********************************************************************************************");
-                }
-
-                }
+	for(i=0;i<lenC; i++)
+	{
+		if(listC[i].id == id && listC[i].isEmpty==FALSE )
+		{
+			for(j=0;j<lenP;j++)
+			{
+				if(listP[j].idCliente == listC[i].id && listP[j].isEmpty == FALSE )
+				{
+					publicacion_removeArray( listP, lenP, listP[j].id);
+				}
+			}
+		}
+	}
 }
 
 
@@ -432,9 +343,71 @@ int conPublicacionesActivas;
 
 
 
+int borradoEnCascadaCLientePublicacion(Publicacion * listP, int lenP,Cliente * listC, int lenC)
+{
+    int retorno = -1;
+    int idAux;
+
+    if (listP!=NULL&& lenP>0&& listC != NULL && lenC>0)
+    {
+   	 cliente_headerArray();
+     cliente_printArray(listC, QTY_CLIENTE);
+
+        if(utn_getNumero ("Ingrese id del Cliente: ", "\nError al ingresar. Por favor ",&idAux, 0, 999, 5)!= -1)
+        {
+            	publicacionesPorCLiente(listP,lenP,listC,lenC, idAux);
+            	if (utn_getAceptaRechaza ("\nAcepta el ingreso? s/n: ", "ERROR al ingresar opcion. \n", 's', 'n')==1)
+                {
+            		publicacionesPorCLienteABorrar(listP,lenP,listC, lenC,  idAux);
+            		cliente_removeArray(listC,lenC, idAux);
+            		printf("\n*****************************************************");
+            		printf("\n             BORRADO EXITOSO!\n");
+            		printf("*****************************************************\n\n");
+                }
+                else
+                {
+                     printf("\n ERROR - No ingreso s / n (case sensitive)");
+                }
+         }
+     }
+    return retorno;
+}
 
 
 
+
+
+//Punto 8
+/*
+int CalcularAvisosClientes(Publicacion* listP,Cliente* listC,int *salida){
+
+      int flagAvisos = 0;
+      int masAvisos = 0;
+
+       for(int i = 0;i<QTY_CLIENTES;i++){
+
+                for(int j = 0 ; j<QTY_PUBLICACION;j++){
+
+                    if(flagAvisos==0){
+                        if(listC[i].publicacionesActivas > masAvisos){
+                        masAvisos = listC[i].publicacionesActivas;
+                        *salida = listC[i].id;
+                        }
+                        flagAvisos=1;
+                    }else{
+
+                        if(listC[i].publicacionesActivas > masAvisos){
+                        masAvisos = listC[i].publicacionesActivas;
+                        *salida = listC[i].id;
+                        }
+                    }
+              }
+       }
+
+        return 0;
+
+}
+*/
 
 
 

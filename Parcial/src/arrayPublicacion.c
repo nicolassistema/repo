@@ -184,6 +184,46 @@ int publicacion_printForId  (Publicacion *list, int len, int id)
 
 
 
+int publicacion_printForIdSinHeader  (Publicacion *list, int len, int id)
+{
+  int retorno = -1;
+  int i;
+  	if(list != NULL && len > 0)
+  	{
+
+  		for( i=0;i<len;i++)
+  		{
+  			if(list[i].id == id && list[i].isEmpty == FALSE &&
+  			    ///Se agrega una condicion mas por si lo que trae es basura
+  			    list[i].estPubli != -1)
+  			{
+  				printf(
+//  				       " %-6d "
+////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
+  				       "%-12d " ///NO TOCAR///////
+  				       "%-12d "
+  				       "%-10d "
+  				       "%-13d "
+  					   "%-13s "
+  				       "%-13s "
+  				       "\n"
+  				 //   ,list[i].isEmpty
+  				   ,list[i].id ///NO TOCAR///////
+				   ,list[i].idCliente
+				   ,list[i].numeroRubro
+				   ,list[i].estPubli
+				   ,list[i].descripcionEstado
+				   ,list[i].texto
+////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
+				    );
+  			}
+  		}
+  		retorno = 0;
+  	}
+ return retorno;
+}
+
+
 
 /** \brief Remove a Employee by Id (put isEmpty Flag in 1)
  *

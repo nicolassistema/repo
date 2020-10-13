@@ -102,51 +102,21 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 		}
 	      break;
 	    case 3:
-//********************************************************************************************************************************************************//
-/////////APLICAR BORRADO EN CASCADA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//********************************************************************************************************************************************************//
-	      if (cliente_flagLimite (cliente_list, QTY_CLIENTE) != 0)
-	      	{
-		  printf ("\n*****************************************************");
-		  printf ("\n*************      BAJA DE CLIENTE   *****************\n");
-		  printf ("*****************************************************\n");
-	      if(cliente_prepareForDelete (cliente_list,QTY_CLIENTE)==-1)
-		{
-		  printf ("\n******\n");
-		  printf ("\nERROR!\n");
-		  printf ("\n******\n");
-		}
-	      	}
-	      else
-	      		{
-		  printf ("\n****************************************\n");
-		  printf ("\nNO HAY CLIENTES CARGADOS PARA ELIMINAR!\n");
-		  printf ("\n****************************************\n");
-	      		}
+	        if (cliente_flagLimite (cliente_list, QTY_CLIENTE) != 0)
+	   		{
+	   		  printf ("\n*****************************************************");
+	   		  printf ("\n*********       Baja de cliente        ************\n");
+	   		  printf ("*****************************************************\n");
+	   		borradoEnCascadaCLientePublicacion(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
+	   		}
+	    	      else
+	    		{
+	    		  printf ("\n*****************************************\n");
+	    		  printf ("\nNO HAY CLIENTES CARGADOS PARA DAR DE BAJA!\n");
+	    		  printf ("\n*****************************************\n");
 
-/*
-	      if (publicacion_flagLimite (publicacion_list, QTY_PUBLICACION) != 0)
-	     	      	{
-	     		  printf ("\n*****************************************************");
-	     		  printf ("\n*************      BAJA DE CLIENTE   *****************\n");
-	     		  printf ("*****************************************************\n");
-	     	      if(publicacion_prepareForDelete (publicacion_list,QTY_PUBLICACION)==-1)
-	     		{
-	     		  printf ("\n******\n");
-	     		  printf ("\nERROR!\n");
-	     		  printf ("\n******\n");
-	     		}
-	     	      	}
-	     	      else
-	     	      		{
-	     		  printf ("\n****************************************\n");
-	     		  printf ("\nNO HAY CLIENTES CARGADOS PARA ELIMINAR!\n");
-	     		  printf ("\n****************************************\n");
-	     	      		}
-	     	      		*/
-//********************************************************************************************************************************************************//
-/////////APLICAR BORRADO EN CASCADA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//********************************************************************************************************************************************************//
+	    		}
+
 	      break;
 	    case 4:
 		 printf ("\n*****************************************************");
@@ -173,12 +143,13 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 	   		 printf ("\n*********    IMPRIMIR CLIENTES    *****************\n");
 	   		 printf ("*****************************************************\n");
 	   		imprimirClientes (publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
-	   	// imprimaProductoElegido(publicacion_list,QTY_PUBLICACION, 1);
 	   	      break;
 	    case 8:
 	   		 printf ("\n*****************************************************");
 	   		 printf ("\n*****************    INFORMAR    ********************\n");
 	   		 printf ("*****************************************************\n");
+
+
 
 
 	   	      break;

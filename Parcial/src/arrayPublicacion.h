@@ -78,6 +78,6 @@ int publicacion_buscarIndiecePorId (Publicacion *list, int len, int idBuscar, in
 
 int publicacion_isPaused(Publicacion* list, int limit, int id);
 
-
+int publicacion_printForIdSinHeader  (Publicacion *list, int len, int id);
 
 #endif /* PUBLICACION_H_ */
