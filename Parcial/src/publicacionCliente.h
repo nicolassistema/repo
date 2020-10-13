@@ -35,9 +35,14 @@ void publicacionesPorCLienteABorrar(Publicacion * listP, int lenP,Cliente * list
 
 
 //Punto 8
+//(A)
+void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente);
 
 
-
+//(B)
+int sumarPausadosPublicacionesClientes(Publicacion* listP,int lenP,int *salida);
+//(C)
+void calcularRubroPublicaciones(Publicacion* listP,int lenP,int *autRubro);
 
 
 #endif /* PUBLICACIONCLIENTE_H_ */

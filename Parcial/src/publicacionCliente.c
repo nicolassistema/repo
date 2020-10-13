@@ -378,39 +378,90 @@ int borradoEnCascadaCLientePublicacion(Publicacion * listP, int lenP,Cliente * l
 
 
 //Punto 8
-/*
-int CalcularAvisosClientes(Publicacion* listP,Cliente* listC,int *salida){
 
-      int flagAvisos = 0;
-      int masAvisos = 0;
+//(A) Cliente con más avisos.
 
-       for(int i = 0;i<QTY_CLIENTES;i++){
+void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente)
+{
 
-                for(int j = 0 ; j<QTY_PUBLICACION;j++){
+	int i;
+	int j;
+	int contador=0;
+	int max=0;
+	int clienteAMostrar;
 
-                    if(flagAvisos==0){
-                        if(listC[i].publicacionesActivas > masAvisos){
-                        masAvisos = listC[i].publicacionesActivas;
-                        *salida = listC[i].id;
-                        }
-                        flagAvisos=1;
-                    }else{
+	for (i = 0; i < lenC; i++)
+	{
+		contador = 0;
+		if(listC[i].isEmpty == FALSE)
+		{
+			for(j=0;j<lenP;j++)
+			{
+				if(listC[i].id==listP[j].idCliente && listP[j].isEmpty == FALSE )
+				{
+					contador++;
+//					printf("\nCONTADOR:  %d\n",contador);
+				}
+			}
+		}
+		if (contador > max)
+			{
+			max = contador;
+				clienteAMostrar = listC[i].id;
+//				printf("\nCLIENTE: %d\n",listC[i].id);
 
-                        if(listC[i].publicacionesActivas > masAvisos){
-                        masAvisos = listC[i].publicacionesActivas;
-                        *salida = listC[i].id;
-                        }
-                    }
-              }
-       }
-
-        return 0;
-
+			}
+	}
+	*autCliente = clienteAMostrar;
 }
-*/
 
 
 
+
+
+
+//(B)
+int sumarPausadosPublicacionesClientes(Publicacion* listP,int lenP,int *salida)
+{
+    int contador = 0;
+    for(int j = 0 ; j < lenP;j++){
+
+         if(listP[j].estPubli != 1  && listP[j].isEmpty == FALSE ){
+                contador++;
+          }
+    }
+    *salida = contador;
+    return 0;
+}
+
+
+//(C) Rubro con mas avisos.
+void calcularRubroPublicaciones(Publicacion* listP,int lenP,int *autRubro)
+{
+int contador = 0;
+int rubroMax = 0;
+int rubroAMostrar =0;
+int i;
+int j;
+
+	for (i = 0; i < lenP; i++)
+	{
+		contador = 0;
+		for (j = 0; j < lenP; j++)
+		{
+			if (listP[j].numeroRubro== i&& listP[j].isEmpty==FALSE && listP[j].estPubli == ACTIVA)
+			{
+				contador++;
+			}
+		}
+		if (contador > rubroMax)
+		{
+			rubroAMostrar = i;
+			rubroMax = contador;
+		}
+	}
+	*autRubro = rubroAMostrar;
+}
 
 
 

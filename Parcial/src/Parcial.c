@@ -25,6 +25,9 @@
 int main(void) {
 setbuf(stdout,NULL);
 int opcion;
+int aux;
+int aux2;
+int aux3;
 
 Cliente cliente_list[QTY_CLIENTE];
 Publicacion publicacion_list[QTY_PUBLICACION];
@@ -149,9 +152,14 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 	   		 printf ("\n*****************    INFORMAR    ********************\n");
 	   		 printf ("*****************************************************\n");
 
+	   		sumarPausadosPublicacionesClientes(publicacion_list, QTY_PUBLICACION, &aux);
+	   		printf("\nLA CANTIDAD DE AVISOS PAUSADOS ES DE : %d\n", aux	);
 
+	   		calcularRubroPublicaciones(publicacion_list, QTY_PUBLICACION, &aux2);
+	   		printf("\nEL RUBRO CON MAS PUBLICACIONES ES EL: %d\n", aux2	);
 
-
+	   		CalcularAvisosClientes(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE, &aux3);
+	   		printf("\nEL CLIENTE CON MAS AVISOS ES EL: %d\n", aux3	);
 	   	      break;
 	    case 9:
 	    	///BORRAR LUEGO DE FINALZAR DESARROLLO////////////////////////////////////
