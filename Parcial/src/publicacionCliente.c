@@ -164,7 +164,7 @@ void pausarPublicacionForId(Publicacion *listP, int lenP, int id)
 
 
 /*
- * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * prepararParaPublicacion_pausada : borrado de publicacion
  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
  * mensaje : El mensaje que imprime para pedir un valor.
  * mensajeError: El mensaje que imprime si el rango no es valido.
@@ -223,7 +223,7 @@ int prepararParaPublicacion_pausada (Publicacion *listP, int lenP,Cliente *listC
 
 
 /*
- * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * reanudarPublicacionForId : borrado de publicacion
  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
  * mensaje : El mensaje que imprime para pedir un valor.
  * mensajeError: El mensaje que imprime si el rango no es valido.
@@ -252,7 +252,7 @@ void reanudarPublicacionForId(Publicacion *listP, int lenP, int id)
 
 
 /*
- * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * prepararParaPublicacion_reanudar : borrado de publicacion
  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
  * mensaje : El mensaje que imprime para pedir un valor.
  * mensajeError: El mensaje que imprime si el rango no es valido.
@@ -311,7 +311,7 @@ int prepararParaPublicacion_reanudar (Publicacion *listP, int lenP,Cliente *list
 
 
 /*
- * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * imprimaProductoElegido : borrado de publicacion
  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
  * mensaje : El mensaje que imprime para pedir un valor.
  * mensajeError: El mensaje que imprime si el rango no es valido.
@@ -360,7 +360,7 @@ int imprimaProductoElegido(Publicacion *listP, int lenP, int id)
 
 
 /*
- * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * imprimirClientes : borrado de publicacion
  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
  * mensaje : El mensaje que imprime para pedir un valor.
  * mensajeError: El mensaje que imprime si el rango no es valido.
@@ -402,7 +402,7 @@ void imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC)
 
 
 /*
- * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * publicacionesPorCLiente : borrado de publicacion
  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
  * mensaje : El mensaje que imprime para pedir un valor.
  * mensajeError: El mensaje que imprime si el rango no es valido.
@@ -438,7 +438,7 @@ void publicacionesPorCLiente(Publicacion * listP, int lenP,Cliente * listC, int 
 
 
 /*
- * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * publicacionesPorCLienteABorrar : borrado de publicacion
  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
  * mensaje : El mensaje que imprime para pedir un valor.
  * mensajeError: El mensaje que imprime si el rango no es valido.
