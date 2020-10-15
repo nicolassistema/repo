@@ -245,7 +245,7 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 		   		 cliente_headerArray();
 		   		 cliente_printArray(cliente_list, QTY_CLIENTE);
 
-		   		MostrarClientesConSusPublicaciones(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
+		   		//MostrarClientesConSusPublicaciones(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
 
 
 
