@@ -37,13 +37,8 @@ int cliente_initArray(Cliente list[], int len)
 		    list[i].isEmpty = TRUE;/////////NO TOCAR////////
 		    list[i].id = 0;/////////NO TOCAR////////
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-//		    list[i].idAux = 0;/////////NO TOCAR////////
 		    strcpy(list[i].nombre,"VACIO");
 		    strcpy(list[i].apellido,"VACIO");
-//		    list[i].NUMERO1 = 0;
-//		    list[i].NUMERO2 = 0;
-//		    list[i].FLOTANTE1 = 0.00;
-//		    list[i].FLOTANTE2 = 0.00;
 		    list[i].cuit = 00000000000000;
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 		}
@@ -68,13 +63,8 @@ free space] - (0) if Ok
 */
 int cliente_addArray(Cliente* list, int len, int id,
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-//		      int idAux,
       		      char* nombre,
      		      char* apellido,
-//      		      int NUMERO1,
-//      		      int NUMERO2,
-//      		      float FLOTANTE1,
-//      		      float FLOTANTE2,
       		      long long int cuit
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 		      )
@@ -90,13 +80,8 @@ int cliente_addArray(Cliente* list, int len, int id,
 	      list[i].id = id;
 	      list[i].isEmpty = FALSE;
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-//	      list[i].idAux = idAux;/////////NO TOCAR////////
 	      strcpy(list[i].nombre,nombre);
 	      strcpy(list[i].apellido,apellido);
-//	      list[i].NUMERO1 = NUMERO1;
-//	      list[i].NUMERO2 = NUMERO2;
-//	      list[i].FLOTANTE1 = FLOTANTE1;
-//	      list[i].FLOTANTE2 = FLOTANTE2;
 	      list[i].cuit = cuit;
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 	      return 0;
@@ -122,22 +107,12 @@ void cliente_headerArray(void)
     printf("\n"
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 	    "%*s"
-//	    "%*s"
-//	    "%*s"
-//	    "%*s"
 	    "%*s"
 	    "%*s"
-//	    "%*s"
-//	    "%*s"
 	    "%*s",
 	   -7, " ID",
-//	   -10, " ID AUX",
-//	   -14," NUMERO1",
-//	   -14," NUMERO2",
 	   -15," NOMBRE",
 	   -16," APELLIDO",
-//	   -12," FLOTANTE1",
-//	   -12," FLOTANTE2",
 	     0," CUIT"
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 	   "\n-----------------------------------------------------\n");
@@ -169,26 +144,16 @@ int cliente_printForId  (Cliente *list, int len, int id)
   				printf(
 //  				       " %-6d "
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-  				       "%-8d " ///NO TOCAR///////
-//  				    "%-12d "
-//  				    "%-12d "
-//  				       "%-10d "
-				       "%-13s "
-  				       "%-15s "
-//				       "%-12.2f "
-//  				       "%-12.2f "
+  				       "%-8d" ///NO TOCAR///////
+				       "%-13s"
+  				       "%-15s"
   				       "%lld"
   				       "\n"
 
   				 //   ,list[i].isEmpty
   				   ,list[i].id ///NO TOCAR///////
-//				   ,list[i].idAux
-//				   ,list[i].NUMERO1
-//				   ,list[i].NUMERO1
 				   ,list[i].nombre
 				   ,list[i].apellido
-//				   ,list[i].FLOTANTE1
-//				   ,list[i].FLOTANTE2
 				   ,list[i].cuit
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
 				    );
@@ -336,27 +301,14 @@ int cliente_printArray(Cliente* list, int length)
 			{
 				printf(
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-				  //  " %-6d "
-				    " %-6d "/////////NO TOCAR//////////////
-//				    " %-10d "
-//				    "%-12d "
-//				    "%-12d "
+				    "%-6d"/////////NO TOCAR//////////////
 				    "%-13s "
 				    "%-13s "
-//				    "%-12.2f "
-//				    "%-12.2f "
 				    "%-30lld"
 				    " \n"
-
-				  //  ,list[i].isEmpty
 				    ,list[i].id/////////NO TOCAR//////////////
-//				    ,list[i].idAux
-//				    ,list[i].NUMERO1
-//				    ,list[i].NUMERO1
 				    ,list[i].nombre
 				    ,list[i].apellido
-//				    ,list[i].FLOTANTE1
-//				    ,list[i].FLOTANTE2
 				    ,list[i].cuit
 				   );
 ////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
@@ -410,13 +362,13 @@ int cliente_searchFree (Cliente *list, int len)
 int cliente_isEmpty(Cliente* list, int limit, int index)
 {
   int retorno = FALSE;
-//  if (list != NULL && list > 0 && index < list)
+
     if (list != NULL && list > 0)
     {
-      if (list[index].isEmpty == TRUE)
-	{
-	  retorno = TRUE;
-	}
+		  if (list[index].isEmpty == TRUE)
+		  	  {
+			  	  retorno = TRUE;
+		  	  }
     }
   return retorno;
 }
@@ -498,7 +450,7 @@ int cliente_chargeArray (Cliente *list, int len)
 	      retorno = 0;
 	  }
 	  printf ("\n*****************************************************");
-          printf ("\n                    ALTA EXITOSA!                  \n");
+      printf ("\n                    ALTA EXITOSA!                  \n");
 	  printf ("*****************************************************\n\n");
 	  	  cliente_printForId  (list, len, auxTemplate.id);
 	}
@@ -522,19 +474,19 @@ int cliente_chargeArray (Cliente *list, int len)
  * \return 0 si esta ok - -1 si no
  *
  */
-int cliente_arrayToBuffer(Cliente *list,Cliente *listBuffer, int len, int id)
+int cliente_arrayToBufferBiId(Cliente *list,Cliente *listBuffer, int len, int id)
 {
   int retorno = -1;
     int i;
     	if(list != NULL && len > 0)
     	{
     	      for( i=0;i<len;i++)
-    		{
-    			if(list[i].id == id)
-    			{
-    			*listBuffer=list[i];
-    			}
-    		}
+    	      	  {
+					if(list[i].id == id)
+						{
+							*listBuffer=list[i];
+						}
+    	      	  }
     		retorno = 0;
     	}
 return retorno;
@@ -552,24 +504,29 @@ return retorno;
  * \return 0 si esta ok - -1 si no
  *
  */
-int cliente_bufferToArray(Cliente *list, Cliente *listBuffer, int len, int id)
+int cliente_bufferToArrayBiId(Cliente *list, Cliente *listBuffer, int len, int id)
 {
   int i;
   int retorno = -1;
+
   if (list != NULL && listBuffer != NULL && len > 0)
     {
-
-	for (i = 0; i < len; i++)
-	  {
-	    if (list[i].id == id)
-	      {
-		list[i] = *listBuffer;
-		retorno = 0;
-	      }
-	  }
+		for (i = 0; i < len; i++)
+			  {
+					if (list[i].id == id)
+						{
+							list[i] = *listBuffer;
+							retorno = 0;
+						}
+			  }
     }
   return retorno;
 }
+
+
+
+
+
 
 
 
@@ -605,7 +562,7 @@ int cliente_updateArray (Cliente *list, int len)
       if (cliente_findArrayById (list, len, bufferID) != -1)
 	{
 	  retorno = 0;
-	  cliente_arrayToBuffer(list, &auxCliente,  len,  bufferID);
+	  cliente_arrayToBufferBiId(list, &auxCliente,  len,  bufferID);
 	  do
 	     {
 	      cliente_printForId  (&auxCliente,len,  bufferID);
@@ -614,8 +571,8 @@ int cliente_updateArray (Cliente *list, int len)
 		      "1-nombre\n"
 		      "2-apellido\n"
 		      "3-CUIT\n"
-	      	      "4-Aceptar Cambios\n"//////NO TOCAR////////////////////////
-	      	      "5-Salir\n"//////NO TOCAR////////////////////////
+	      	  "4-Aceptar Cambios\n"//////NO TOCAR////////////////////////
+	      	  "5-Salir\n"//////NO TOCAR////////////////////////
 		  );
 
 	       if (utn_getNumero ("\nPor favor ingrese una opcion: ","\nOpcion Invalida. ", &opcion, 1, 5, 3) != -1)
@@ -655,7 +612,7 @@ int cliente_updateArray (Cliente *list, int len)
 	 	   case 4:
 	 		 if(utn_getAceptaRechaza ("\nGrabar cambios? s/n: ", "ERROR al ingresar opcion. \n", 's', 'n')==1)
 	 		   {
-	 		    cliente_bufferToArray (list, &auxCliente,  len, bufferID);
+	 		    cliente_bufferToArrayBiId (list, &auxCliente,  len, bufferID);
 	 		    printf ("\n*************************************\n");
 	 		    printf ("\nLOS CAMBIOS SE GRABARON EXITOSAMENTE!\n");
 	 		    printf ("\n*************************************\n\n");
@@ -707,137 +664,30 @@ int cliente_prepareForDelete (Cliente *list, int len)
   int bufferID;
 
   if (list != NULL && len > 0)
-    {
+  	  {
       utn_getNumero ("\nIngrese ID del cliente: ", "\nError al ingresar. ", &bufferID, 1, QTY_CLIENTE, 5);
       if (cliente_findArrayById (list, len, bufferID) != -1)
-	{
-	  cliente_printForId (list, len, bufferID);
-	  retorno = utn_getAceptaRechaza ("\nAcepta eliminar cliente? s/n: ", "ERROR al ingresar opcion. \n", 's','n');
-	  if (retorno == 1)
-	    {
-	      cliente_removeArray (list, len, bufferID);
-	      retorno = 1;
-	      printf ("\n*****************************************************");
-	      printf ("\n             ELIMINACION EXITOSA!\n");
-	      printf ("*****************************************************\n\n");
-	    }
-	}
-      else
-  	{
-  	  printf ("\nEl ID NO existe\n");
-  	}
-    }
+      	  {
+			  cliente_printForId (list, len, bufferID);
+			  retorno = utn_getAceptaRechaza ("\nAcepta eliminar cliente? s/n: ", "ERROR al ingresar opcion. \n", 's','n');
+			  if (retorno == 1)
+				  {
+					  cliente_removeArray (list, len, bufferID);
+					  retorno = 1;
+					  printf ("\n*****************************************************");
+					  printf ("\n             ELIMINACION EXITOSA!\n");
+					  printf ("*****************************************************\n\n");
+				  }
+      	  }
+      	  	  else
+      	  	  {
+      	  		  printf ("\nEl ID NO existe\n");
+      	  	  }
+  	  }
   return retorno;
 }
 
 
-
-/** \brief obtiene la suma de los valores del array
- *
- * \param list Employee*
- * \param length int
- * \return 0 si esta ok - -1 si no
- *
- */
-/*
-float cliente_sumaTotal (Cliente *list, int len)
-{
-  int i;
-  float retorno = -1;
-  float aux = 0;
-
-  if (list != NULL && len > 0)
-    {
-      for (i = 0; i < len; i++)
-	{
-	  if (list[i].isEmpty == FALSE &&
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	      list[i].FLOTANTE1 != FALSE
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	      )
-	    {
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	      aux = aux + list[i].FLOTANTE1;
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	    }
-	}
-      retorno = aux;
-    }
-  return retorno;
-}
-*/
-
-/** \brief obtiene el promedio
- *
- * \param list Employee*
- * \param length int
- * \usa la funcion sumaTotal para sumar
- * \return 0 si esta ok - -1 si no
- *
- */
-/*
-float cliente_promedio(Cliente* list, int len)
-{
-  int i;
-  float retorno = -1;
-  int contador = 0;
-
-  if (list != NULL && len > 0)
-    {
-      for (i = 0; i < len; i++)
-	{
-	  if (list[i].isEmpty == FALSE &&
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	      list[i].FLOTANTE1 != FALSE
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	      )
-	    {
-	      contador++;
-	    }
-	}
-      retorno = cliente_sumaTotal (list, len) / contador;
-    }
-  return retorno;
-}
-*/
-
-
-/** \brief obtiene la cantidad superior al promedio
- *
- * \param list Employee*
- * \param length int
- * \usa la funcion promedio para obtener el promedio
- * \return 0 si esta ok - -1 si no
- *
- */
-/*
-int cliente_cantidadSuperiorAlPromedio(Cliente* list, int len)
-{
-
-  int i;
-  int retorno = -1;
-  int contador = 0;
-  float aux;
-
-  aux = cliente_promedio (list, len);
-  if (list != NULL && len > 0)
-    {
-      for (i = 0; i < len; i++)
-	{
-	  if (list[i].isEmpty == FALSE &&
-////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
-	      list[i].FLOTANTE1 > aux
-///////////////////////////////////////////////////////MODIFICABLE//////////////////////////////////////////////////////////////////////
-	      )
-	    {
-	      contador++;
-	    }
-	}
-      retorno = contador;
-    }
-  return retorno;
-}
-*/
 
 
 /** \brief recorre el array y devuelve si esta full o si esta vacio
@@ -855,45 +705,51 @@ int cliente_flagLimite(Cliente* list, int len)
   int contador = 0;
 
   for (i = 0; i < len; i++)
-    {
-      if (i <= len && list[i].isEmpty == FALSE)
-	{
-	  contador++;
-	}
-    }
+  	  {
+		  if (i <= len && list[i].isEmpty == FALSE)
+		  	  {
+			  	  contador++;
+		  	  }
+  	  }
   if (contador == 0)
-    {
-      retorno = 0;
-    }
+  	  {
+      	  retorno = 0;
+  	  }
   else if (contador > 0 && contador != len)
-    {
-      retorno = contador;
-    }
+  	  {
+      	  retorno = contador;
+  	  }
   return retorno;
 }
 
 
 
 
-
-
+/** \brief recorre el array y devuelve si esta full o si esta vacio
+ *
+ * \param list Employee*
+ * \param length int
+ * \usa la funcion promedio para obtener el promedio
+ * \return 0 si esta vacio - > 0 si contiene datos- -1 si no
+ *
+ */
 int cliente_buscarIndiecePorId (Cliente* list, int len, int idBuscar, int* pIndice)
 {
   int retorno = -1;
   int i;
 
   if (list != NULL && len > 0 && pIndice != NULL)
-    {
-      for (i = 0; i < len; i++)
-	{
-	  if (list[i].id == idBuscar)
-	    {
-		*pIndice = i;
-		retorno = 0;
-		break;
-	    }
-	}
-    }
+  	  {
+		  for (i = 0; i < len; i++)
+		  	  {
+				  if (list[i].id == idBuscar)
+					{
+						*pIndice = i;
+						retorno = 0;
+						break;
+					}
+		  	  }
+  	  }
   return retorno;
 }
 

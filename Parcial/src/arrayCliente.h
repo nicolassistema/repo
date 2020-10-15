@@ -68,8 +68,8 @@ int cliente_cantidadSuperiorAlPromedio(Cliente* list, int len);////********MODIF
 int cliente_findArrayById (Cliente *list, int len, int id);
 int cliente_removeArray(Cliente* list, int len, int id);
 int cliente_searchFree (Cliente* list, int len);
-int cliente_bufferToArray (Cliente* list, Cliente * , int len, int id);
-int cliente_arrayToBuffer(Cliente *list,Cliente *listBuffer, int len, int id);
+int cliente_bufferToArrayBiId (Cliente* list, Cliente * , int len, int id);
+int cliente_arrayToBufferBiId(Cliente *list,Cliente *listBuffer, int len, int id);
 int cliente_deleteArray (Cliente* list, int len);
 int cliente_flagLimite(Cliente* list, int len);
 int cliente_prepareForDelete (Cliente *list, int len);

@@ -64,8 +64,9 @@ int publicacion_cantidadSuperiorAlPromedio(Publicacion* list, int len);////*****
 int publicacion_findArrayById (Publicacion *list, int len, int id);
 int publicacion_removeArray(Publicacion* list, int len, int id);
 int publicacion_searchFree (Publicacion* list, int len);
-int  publicacion_bufferToArray (Publicacion* list, Publicacion * , int len, int id);
-int publicacion_arrayToBuffer(Publicacion *list,Publicacion *listBuffer, int len, int id);
+int publicacion_bufferToArrayBiId (Publicacion* list, Publicacion * , int len, int id);
+int publicacion_arrayToBufferBiId(Publicacion *list,Publicacion *listBuffer, int len, int id);
+
 int publicacion_deleteArray (Publicacion* list, int len);
 int publicacion_flagLimite(Publicacion* list, int len);
 int publicacion_prepareForDelete (Publicacion *list, int len);

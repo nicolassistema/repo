@@ -20,6 +20,17 @@
 #include "utn_input.h"
 
 
+/*
+ * publicacionCliente_chargeArray :
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 
 
@@ -88,6 +99,17 @@ int publicacionCliente_chargeArray (Publicacion *listP, int lenP,Cliente *listC,
 	return retorno;
 }
 
+/*
+ * obtenerIdClienteXIdPublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 
  void obtenerIdClienteXIdPublicacion(Publicacion *listP, int lenP,Cliente *listC, int lenC, int *idCliente, int idPublicidad)
@@ -109,6 +131,21 @@ int publicacionCliente_chargeArray (Publicacion *listP, int lenP,Cliente *listC,
 	}
 }
 
+
+
+
+ /*
+  * borradoEnCascadaCLientePublicacion : borrado de publicacion
+  * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+  * mensaje : El mensaje que imprime para pedir un valor.
+  * mensajeError: El mensaje que imprime si el rango no es valido.
+  * minimo : valor minimo valido (inclusive)
+  * maximo : valor maximo valido (inclusive)
+  * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+  * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+  *
+  */
+
  //Punto 5////////////////////////////////////
 void pausarPublicacionForId(Publicacion *listP, int lenP, int id)
 {
@@ -126,6 +163,17 @@ void pausarPublicacionForId(Publicacion *listP, int lenP, int id)
 }
 
 
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 
 int prepararParaPublicacion_pausada (Publicacion *listP, int lenP,Cliente *listC, int lenC)
@@ -174,6 +222,17 @@ int prepararParaPublicacion_pausada (Publicacion *listP, int lenP,Cliente *listC
 }
 
 
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 //Punto 6////////////////////////////////////
 void reanudarPublicacionForId(Publicacion *listP, int lenP, int id)
@@ -189,6 +248,20 @@ void reanudarPublicacionForId(Publicacion *listP, int lenP, int id)
 		}
 	}
 }
+
+
+
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 
 int prepararParaPublicacion_reanudar (Publicacion *listP, int lenP,Cliente *listC, int lenC)
@@ -237,6 +310,17 @@ int prepararParaPublicacion_reanudar (Publicacion *listP, int lenP,Cliente *list
 }
 
 
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 
 //Punto 7
@@ -275,8 +359,19 @@ int imprimaProductoElegido(Publicacion *listP, int lenP, int id)
 
 
 
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
-imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC)
+void imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC)
 {
 	int i;
 	int j;
@@ -300,11 +395,23 @@ imprimirClientes(Publicacion *listP, int lenP,Cliente *listC, int lenC)
 			}
 			printf("\n%s %d\n\n\n", "Publicaciones activas",conPublicacionesActivas);
 			printf("*********************************************************************************************");
-
 		}
 	}
 }
 
+
+
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 //Punto 4
 void publicacionesPorCLiente(Publicacion * listP, int lenP,Cliente * listC, int lenC, int id)
@@ -326,6 +433,21 @@ void publicacionesPorCLiente(Publicacion * listP, int lenP,Cliente * listC, int 
 		}
 	}
 }
+
+
+
+
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 
 void publicacionesPorCLienteABorrar(Publicacion * listP, int lenP,Cliente * listC, int lenC, int id)
@@ -352,6 +474,17 @@ void publicacionesPorCLienteABorrar(Publicacion * listP, int lenP,Cliente * list
 
 
 
+/*
+ * borradoEnCascadaCLientePublicacion : borrado de publicacion
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 int borradoEnCascadaCLientePublicacion(Publicacion * listP, int lenP,Cliente * listC, int lenC)
 {
@@ -385,6 +518,17 @@ int borradoEnCascadaCLientePublicacion(Publicacion * listP, int lenP,Cliente * l
 
 
 
+/*
+ * CalcularAvisosClientes : calcular avisos cliente
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 
 //Punto 8
@@ -393,7 +537,6 @@ int borradoEnCascadaCLientePublicacion(Publicacion * listP, int lenP,Cliente * l
 
 void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente)
 {
-
 	int i;
 	int j;
 	int contador;
@@ -411,7 +554,6 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 				if(listC[i].id==listP[j].idCliente && listP[j].isEmpty == FALSE )
 				{
 					contador++;
-
 				}
 			}
 		}
@@ -419,11 +561,7 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 			{
 			max = contador;
 				clienteAMostrar = listC[i].id;
-
-
 				flag=1;
-
-
 			}
 	}
 	*autCliente = clienteAMostrar;
@@ -432,7 +570,18 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 
 
 
-
+//=============================================================================================================
+/*
+ * sumarPausadosPublicacionesClientes : sumar pausado publicacion cliente
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
 
 //(B)
 int sumarPausadosPublicacionesClientes(Publicacion* listP,int lenP,int *salida)
@@ -483,6 +632,195 @@ int j;
 
 
 
+//=============================================================================================================
+/*
+ * contadorClientePubliciacacionBiId : contador de publicaciones por id
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
+int  contadorClientePubliciacacionBiId (Cliente *listC,int lenC, Publicacion *listP,int lenP, int id)
+{
+    int i;
+    int j;
+    int contadorPublicacion = 0;
+    int retorno = -1;
+
+    for(i=0; i<lenC; i++)
+    {
+    	if(listC[i].id == id && listC[i].isEmpty == FALSE)
+    	{
+			for(j=0; j<lenP; j++)
+				{
+					if(listP[j].isEmpty==FALSE && listP[j].idCliente==listC[i].id)
+					{
+						contadorPublicacion++;
+					}
+				}
+    	}retorno=contadorPublicacion;
+    }
+    return retorno;
+}
+
+
+//=============================================================================================================
+/*
+ * contadorClientePubliciacacionBiId : contador de publicaciones por id
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
+
+void MostrarClientesConSusPublicaciones(Publicacion* listP,int lenP, Cliente* listC,int lenC)
+{
+    int i;//clientes
+    int j;//Publicaciones
+    char flagTienePunlicacion;
+
+    for(i=0; i<lenC; i++)
+    {
+       if(listC[i].isEmpty==FALSE)
+       {
+        printf("\n\nCliente: %s %s | Cantidad de publicaciones: %d"
+        		"\n***********************************************", listC[i].nombre, listC[i].apellido,
+		contadorClientePubliciacacionBiId (listC,lenC, listP,lenP, listC[i].id));
+        flagTienePunlicacion='n';
+        publicacion_headerArray();
+        for(j=0; j<lenP; j++)
+        {
+            if(listP[j].isEmpty == FALSE && listP[j].idCliente== listC[i].id )
+            {
+            	printf(
+            						" %-6d "
+            						" %-10d "
+            						"%-12d "
+            						"%-12d "
+            						"%-15s "
+            						"%-13s "
+            						" \n"
+            						,listP[j].id
+            						,listP[j].idCliente
+            						,listP[j].numeroRubro
+            						,listP[j].estPubli
+            						,listP[j].descripcionEstado
+            						,listP[j].texto);
+            	flagTienePunlicacion='s';
+            }
+        }
+        if(flagTienePunlicacion=='n')
+        {
+            printf("Este cliente no tiene publicaciones\n");
+        }
+
+       }
+    }
+}
+
+/*
+void publicacionArrayToBuffer(Publicacion* listP,Publicacion *listPBuffer,int lenP)
+{
+	 int i;
+
+	    for(i=0; i<lenP; i++)
+	    {
+	    	if(listP[i].isEmpty==FALSE)
+	    	{
+	    		listPBuffer[i].id =listP[i].id;
+	    		listPBuffer[i].isEmpty=listP[i].isEmpty;
+	    		listPBuffer[i].idCliente =listP[i].idCliente;
+	    		listPBuffer[i].numeroRubro =listP[i].numeroRubro;
+	    		listPBuffer[i].estPubli =listP[i].estPubli;
+	    		strcpy(listPBuffer[i].descripcionEstado,listP[i].descripcionEstado);
+	    		strcpy(listPBuffer[i].texto,listP[i].texto);
+	    	}
+	    }
+}
+
+
+
+
+void clienteArrayToBuffer(Cliente* listC,Cliente *listPBuffer,int lenC)
+{
+	 int i;
+
+	    for(i=0; i<lenC; i++)
+	    {
+	    	if(listC[i].isEmpty==FALSE)
+	    	{
+	    		listPBuffer[i].id =listC[i].id;
+	    		listPBuffer[i].isEmpty=listC[i].isEmpty;
+	    	strcpy(listPBuffer[i].nombre ,listC[i].nombre);
+	    	strcpy(listPBuffer[i].apellido ,listC[i].apellido);
+	    		listPBuffer[i].cuit =listC[i].cuit;
+	    	}
+	    }
+}
+*/
+
+
+
+
+/*
+ordernarPorCantPublicaciones(Publicacion* listP,int lenP, Cliente* listC,int lenC)
+{
+	 int flagSwap;
+	  int i;
+	  int contador = 0;
+
+	  int nuevoLimite;
+
+
+AuxEstruct auxEstruct;
+//AuxEstruct buffer;
+
+//clienteArrayToBuffer(listC,&auxC,lenC);
+//publicacionArrayToBuffer(listP,&auxP,lenP);
+HardcodeoAuxClientePublicacion (&auxEstruct, listC, lenC,listP, lenP);
+
+
+
+for(i=0;i<lenC;i++)
+{
+
+//printf("El valor de la cantidad: %d",auxEstruct[i].cantPublicacion);
+
+
+}
+
+
+do
+	{
+	  flagSwap = 0;
+
+	  for (i = 0; i < nuevoLimite; i++)
+	    {
+	      contador++;
+////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
+	      if (auxEstruct[i].cantPublicacion > auxEstruct[i+1].cantPublicacion)
+
+////////////////////////////////////////////////////////MODIFICABLE/////////////////////////////////////////////////////////////////////
+
+//		  ||(0==strcmp (list[i].lastName, list[i + 1].lastName) &&
+//		      (((list[i].sector > list[i + 1].sector)&&(order == 1))
+//			  ||((list[i].sector < list[i + 1].sector) &&(order == 0)))))
+		{
+		  flagSwap = 1;
+		  buffer = auxEstruct[i];
+		  auxEstruct[i] = auxEstruct[i + 1];
+		  auxEstruct[i + 1] = buffer;
+		}
+	    }
+	  nuevoLimite--;
+	}
+   while (flagSwap);
 
 
 
@@ -490,11 +828,5 @@ int j;
 
 
 
-
-
-
-
-
-
-
-
+}
+*/

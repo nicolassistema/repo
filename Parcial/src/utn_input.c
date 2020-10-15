@@ -184,7 +184,7 @@ int utn_getNumeroLong(char* mensaje,char* mensajeError,long long int* pResultado
 {
 	int retorno = 0;
 	char buffer[30];
-	long long int prueba;
+//	long long int prueba;
 	if(pResultado != NULL){
 
 		if(utn_myGets(buffer,sizeof(buffer)) != -1 && utn_verificadorDeNumeros(buffer,sizeof(buffer)) != -1){
@@ -212,29 +212,17 @@ int utn_myGets(char* cadena, int longitud)
 {
 	int retorno = 1;
 	char bufferString[longitud];
-	//int i;
 
 	if(cadena != NULL && longitud > 0)
 	{
 		fflush(stdin);
 		if(fgets(bufferString,sizeof(bufferString),stdin) != NULL)
 		{
-		    //printf("\n ENTRO EN EL FGETS\n");
 			if(bufferString[strnlen(bufferString,sizeof(bufferString))-1] == '\n')
 			{
 				bufferString[strnlen(bufferString,sizeof(bufferString))-1] = '\0';
 			}
-/*
-			for(i=0;i< bufferString[strnlen(bufferString,sizeof(bufferString))];i++)
-			  {
-			    if(bufferString[i]== '27')
-			      {
-				return 1;
-				break;
-			      }
 
-			  }
-*/
 			if(strlen(bufferString) <= longitud)
 			{
 				strncpy(cadena,bufferString,longitud);
@@ -242,7 +230,6 @@ int utn_myGets(char* cadena, int longitud)
 			}
 		}
 	}
-	//printf("\n LO QUE DEVUELVE EL RETRONO DE utn_myGets: %d\n",retorno);
 	return retorno;
 }
 
@@ -368,22 +355,13 @@ int utn_getNumeroFloat(float* pResultado,char* mensaje,char* mensajeError,float 
 	int retorno = 0;
 	int i= 0;
 	int contador = 0;
-	//int contadorIteracion = 0;
 	if(pResultado != NULL && limite > 0)
 	  {
-	//    contadorIteracion++;
 
 	    do{
-
-
-
-		  //  printf("\nENTRO EN EL IF DE SOLO_LETRAS FOR\n");
 			if((pResultado[i] < 'a' || pResultado[i] > 'z') && (pResultado[i] < 'A' || pResultado[i] > 'Z') && pResultado[i] != ' ')
 			{
-			  //  printf("\nENTRO EN EL IF DE SOLO_LETRAS\n");
 			    retorno =  -1;
-				//respuesta = -1;
-			   //continue;
 				break;
 				contador ++;
 			}
@@ -420,7 +398,6 @@ int utn_getNumeroFloat(float* pResultado,char* mensaje,char* mensajeError,float 
 	  retorno = 1;
 	}
     }
- // printf("\nLO QUE ESTA DEVOLVIENDO utn_getString: %d\n", retorno);
   return retorno;
 }
 

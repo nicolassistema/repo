@@ -168,7 +168,8 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 	    	  	  printf ("\n*****************************************************");
 	    	  	  printf ("\n*********    IMPRIMIR CLIENTES    *****************\n");
 	    	  	  printf ("*****************************************************\n");
-	    	  	  imprimirClientes (publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
+
+	    	  	MostrarClientesConSusPublicaciones(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
 	    		  }
 	    	  	  	  else
 	    	  	      	  {
@@ -219,8 +220,6 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 															calcularRubroPublicaciones(publicacion_list, QTY_PUBLICACION, &rubroConMasAvisos);
 															printf("\nEL RUBRO CON MAS PUBLICACIONES ES EL: %d\n", rubroConMasAvisos);
 															break;
-
-
 													}
 												}
 					  }while(opcion2!=4);
@@ -243,6 +242,10 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 		   		 publicacion_printArray(publicacion_list, QTY_PUBLICACION);
 		   		 cliente_headerArray();
 		   		 cliente_printArray(cliente_list, QTY_CLIENTE);
+
+		   		MostrarClientesConSusPublicaciones(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
+
+
 		   	      break;
 
 	    case 10:

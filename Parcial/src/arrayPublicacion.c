@@ -539,7 +539,7 @@ int publicacion_chargeArray (Publicacion *list, int len)
  * \return 0 si esta ok - -1 si no
  *
  */
-int publicacion_arrayToBuffer(Publicacion *list,Publicacion *listBuffer, int len, int id)
+int publicacion_arrayToBufferBiId(Publicacion *list,Publicacion *listBuffer, int len, int id)
 {
   int retorno = -1;
     int i;
@@ -560,6 +560,9 @@ return retorno;
 
 
 
+
+
+
 /** \brief vuelca datos del array auxiliar a un array  partiendo del id
  *
  * \param list Employee*
@@ -569,7 +572,7 @@ return retorno;
  * \return 0 si esta ok - -1 si no
  *
  */
-int publicacion_bufferToArray(Publicacion *list, Publicacion *listBuffer, int len, int id)
+int publicacion_bufferToArrayBiId(Publicacion *list, Publicacion *listBuffer, int len, int id)
 {
   int i;
   int retorno = -1;
@@ -622,7 +625,7 @@ int publicacion_updateArray (Publicacion *list, int len)
       if (publicacion_findArrayById (list, len, bufferID) != -1)
 	{
 	  retorno = 0;
-	  publicacion_arrayToBuffer(list, &auxPublicacion,  len,  bufferID);
+	  publicacion_arrayToBufferBiId(list, &auxPublicacion,  len,  bufferID);
 	  do
 	     {
 	      publicacion_printForId  (&auxPublicacion,len,  bufferID);
@@ -673,7 +676,7 @@ int publicacion_updateArray (Publicacion *list, int len)
 	 	   case 4:
 	 		 if(utn_getAceptaRechaza ("\nGrabar cambios? s/n: ", "ERROR al ingresar opcion. \n", 's', 'n')==1)
 	 		   {
-	 		    publicacion_bufferToArray (list, &auxPublicacion,  len, bufferID);
+	 		    publicacion_bufferToArrayBiId (list, &auxPublicacion,  len, bufferID);
 	 		    printf ("\n*************************************\n");
 	 		    printf ("\nLOS CAMBIOS SE GRABARON EXITOSAMENTE!\n");
 	 		    printf ("\n*************************************\n\n");
