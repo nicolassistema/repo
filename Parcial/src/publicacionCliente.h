@@ -68,6 +68,7 @@ void HardcodeoAuxClientePublicacion (AuxEstruct *listCAux, Cliente *listC, int l
 void clienteArrayToBuffer(Cliente* listC,Cliente *listPBuffer,int lenC);
 void publicacionArrayToBuffer(Publicacion* listP,Publicacion *listPBuffer,int lenP);
 
-
+void ClienteConMasAvisosActivos(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente);
+void ClienteConMasAvisosPausados(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente);
 
 #endif /* PUBLICACIONCLIENTE_H_ */

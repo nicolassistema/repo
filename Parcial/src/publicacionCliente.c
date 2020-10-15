@@ -570,6 +570,99 @@ void CalcularAvisosClientes(Publicacion* listP,int lenP, Cliente* listC,int lenC
 
 
 
+
+
+
+/*
+ * CalcularAvisosClientes : calcular avisos cliente
+ * pResultado : Direccion de memoria de la variable donde escribe el valor ingresado por el usuario
+ * mensaje : El mensaje que imprime para pedir un valor.
+ * mensajeError: El mensaje que imprime si el rango no es valido.
+ * minimo : valor minimo valido (inclusive)
+ * maximo : valor maximo valido (inclusive)
+ * Reintentos: cantidad de veces que tiene el usuario para ingresar un valor valido
+ * Retorno: devuelve un 0 si esta todoOK. Devuelve -1 si hubo un error.
+ *
+ */
+
+
+
+//b) Cliente con más avisos activos
+
+void ClienteConMasAvisosActivos(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente)
+{
+	int i;
+	int j;
+	int contador;
+	int max;
+	int flag = 0;
+	int clienteAMostrar;
+
+	for (i = 0; i < lenC; i++)
+	{
+		contador = 0;
+		if(listC[i].isEmpty == FALSE)
+		{
+			for(j=0;j<lenP;j++)
+			{
+				if(listC[i].id==listP[j].idCliente && listP[j].isEmpty == FALSE && listP[j].estPubli == ACTIVA )
+				{
+					contador++;
+				}
+			}
+		}
+		if (contador > max || flag ==0)
+			{
+			max = contador;
+				clienteAMostrar = listC[i].id;
+				flag=1;
+			}
+	}
+	*autCliente = clienteAMostrar;
+}
+
+
+
+//c) Cliente con más avisos pausados.
+
+void ClienteConMasAvisosPausados(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente)
+{
+	int i;
+	int j;
+	int contador = 0;
+	int max;
+	int flag = 0;
+	int clienteAMostrar;
+
+	for (i = 0; i < lenC; i++)
+	{
+		contador = 0;
+		if(listC[i].isEmpty == FALSE)
+		{
+			for(j=0;j<lenP;j++)
+			{
+				if(listC[i].id==listP[j].idCliente && listP[j].isEmpty == FALSE && listP[j].estPubli == PAUSADA )
+				{
+					contador++;
+				}
+			}
+		}
+		if (contador > max || flag ==0)
+			{
+			max = contador;
+				clienteAMostrar = listC[i].id;
+				flag=1;
+			}
+	}
+	*autCliente = clienteAMostrar;
+}
+
+
+
+
+
+
+
 //=============================================================================================================
 /*
  * sumarPausadosPublicacionesClientes : sumar pausado publicacion cliente
@@ -723,6 +816,67 @@ void MostrarClientesConSusPublicaciones(Publicacion* listP,int lenP, Cliente* li
        }
     }
 }
+
+
+
+
+
+/*
+void MostrarClientesConSusPublicaciones(Publicacion* listP,int lenP, Cliente* listC,int lenC)
+{
+    int i;//clientes
+    int j;//Publicaciones
+    char flagTienePunlicacion;
+
+    for(i=0; i<lenC; i++)
+    {
+       if(listC[i].isEmpty==FALSE)
+       {
+        printf("\n\nCliente: %s %s | Cantidad de publicaciones: %d"
+        		"\n***********************************************", listC[i].nombre, listC[i].apellido,
+		contadorClientePubliciacacionBiId (listC,lenC, listP,lenP, listC[i].id));
+        flagTienePunlicacion='n';
+        publicacion_headerArray();
+        for(j=0; j<lenP; j++)
+        {
+            if(listP[j].isEmpty == FALSE && listP[j].idCliente== listC[i].id )
+            {
+            	printf(
+            						" %-6d "
+            						" %-10d "
+            						"%-12d "
+            						"%-12d "
+            						"%-15s "
+            						"%-13s "
+            						" \n"
+            						,listP[j].id
+            						,listP[j].idCliente
+            						,listP[j].numeroRubro
+            						,listP[j].estPubli
+            						,listP[j].descripcionEstado
+            						,listP[j].texto);
+            	flagTienePunlicacion='s';
+            }
+        }
+        if(flagTienePunlicacion=='n')
+        {
+            printf("Este cliente no tiene publicaciones\n");
+        }
+
+       }
+    }
+}
+
+
+*/
+
+
+
+
+
+
+
+
 
 /*
 void publicacionArrayToBuffer(Publicacion* listP,Publicacion *listPBuffer,int lenP)

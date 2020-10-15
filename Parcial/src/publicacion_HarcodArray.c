@@ -19,10 +19,10 @@ void publicacion_hardcodDatosArray(Publicacion* list, int len)
     int i;
     int idPublicacion[QTY_PUBLICACION_HARDCOD_TEST] = {1,2,3,4,5};/////////NO TOCAR////////
     int isEmpty[QTY_PUBLICACION_HARDCOD_TEST]= {FALSE,FALSE,FALSE,FALSE,FALSE};/////////NO TOCAR////////
-    int idCliente[QTY_PUBLICACION_HARDCOD_TEST] = {1,2,2,4,5};/////////NO TOCAR////////
+    int idCliente[QTY_PUBLICACION_HARDCOD_TEST] = {1,4,5,5,1};/////////NO TOCAR////////
     char texto[QTY_PUBLICACION_HARDCOD_TEST][LONG_NAME_PUBLICACION]= {"Vendo marido, poco uso","Paloma solitaria busca nido confortable.","Busco perro y suegra perdidos. Recompensa por el perro.","Cambio pastor alemán por uno que hable español.","Cambio suegra por víbora. Pago la diferencia."};
     int numeroRubro[QTY_PUBLICACION_HARDCOD_TEST] = {9,15,8,8,5};
-    int estadoPublicacion[QTY_PUBLICACION_HARDCOD_TEST] = {ACTIVA,ACTIVA,ACTIVA,ACTIVA,ACTIVA};
+    int estadoPublicacion[QTY_PUBLICACION_HARDCOD_TEST] = {PAUSADA,PAUSADA,PAUSADA,ACTIVA,PAUSADA};
     char descripcionestadoPublicacion[QTY_PUBLICACION_HARDCOD_TEST][10] = {"ACTIVA","ACTIVA","ACTIVA","ACTIVA","ACTIVA"};
 
 

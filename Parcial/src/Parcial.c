@@ -29,6 +29,8 @@ int opcion2;
 int clienteMasAvisos;
 int cantAvisosPausados;
 int rubroConMasAvisos;
+int cantAvisosActivos;
+int cantMasAvisosPausados;
 
 Cliente cliente_list[QTY_CLIENTE];
 Publicacion publicacion_list[QTY_PUBLICACION];
@@ -244,6 +246,19 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 		   		 cliente_printArray(cliente_list, QTY_CLIENTE);
 
 		   		MostrarClientesConSusPublicaciones(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE);
+
+
+
+
+		   		ClienteConMasAvisosActivos(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE, &cantAvisosActivos);
+				printf("\nCLIENTE CON MAS AVISOS ACTIVOS: %d\n", cantAvisosActivos);
+				cliente_printForId(cliente_list,QTY_CLIENTE, cantAvisosActivos);
+
+
+
+				ClienteConMasAvisosPausados(publicacion_list, QTY_PUBLICACION,cliente_list,QTY_CLIENTE, &cantMasAvisosPausados);
+				printf("\nCLIENTE CON MAS AVISOS PAUSADOS: %d\n", cantMasAvisosPausados);
+				cliente_printForId(cliente_list,QTY_CLIENTE, cantMasAvisosPausados);
 
 
 		   	      break;
