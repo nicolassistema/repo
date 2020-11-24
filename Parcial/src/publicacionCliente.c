@@ -530,7 +530,6 @@ int borradoEnCascadaCLientePublicacion(Publicacion * listP, int lenP,Cliente * l
  *
  */
 
-
 //Punto 8
 
 //(A) Cliente con más avisos.
@@ -921,8 +920,8 @@ void clienteArrayToBuffer(Cliente* listC,Cliente *listPBuffer,int lenC)
 
 
 
-
 /*
+
 ordernarPorCantPublicaciones(Publicacion* listP,int lenP, Cliente* listC,int lenC)
 {
 	 int flagSwap;
@@ -932,7 +931,7 @@ ordernarPorCantPublicaciones(Publicacion* listP,int lenP, Cliente* listC,int len
 	  int nuevoLimite;
 
 
-AuxEstruct auxEstruct;
+AuxEstruct *auxEstruct;
 //AuxEstruct buffer;
 
 //clienteArrayToBuffer(listC,&auxC,lenC);
@@ -944,7 +943,7 @@ HardcodeoAuxClientePublicacion (&auxEstruct, listC, lenC,listP, lenP);
 for(i=0;i<lenC;i++)
 {
 
-//printf("El valor de la cantidad: %d",auxEstruct[i].cantPublicacion);
+printf("El valor de la cantidad: %d",auxEstruct[i].cantPublicacion);
 
 
 }

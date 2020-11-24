@@ -261,6 +261,10 @@ cliente_HardcodDatosArray(cliente_list, QTY_CLIENTE_HARDCOD_TEST);
 				cliente_printForId(cliente_list,QTY_CLIENTE, cantMasAvisosPausados);
 
 
+
+
+
+
 		   	      break;
 
 	    case 10:

@@ -71,4 +71,8 @@ void publicacionArrayToBuffer(Publicacion* listP,Publicacion *listPBuffer,int le
 void ClienteConMasAvisosActivos(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente);
 void ClienteConMasAvisosPausados(Publicacion* listP,int lenP, Cliente* listC,int lenC, int *autCliente);
 
+
+
+
+
 #endif /* PUBLICACIONCLIENTE_H_ */
