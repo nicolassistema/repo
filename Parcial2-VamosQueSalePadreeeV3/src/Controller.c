@@ -381,87 +381,85 @@ int controller_editAficheAcobrar(LinkedList* pArrayListAfiche, LinkedList* pArra
 
 
 
-int controller_InfoCobro(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente, int opcion)
+int controller_InfoACobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente)
 {
 	int retorno = -1;
 	Afiche* auxAfiche;
-	Afiche afiche;
+
 	Cliente* auxCliente;
-	Cliente* auxClienteII;
-	LinkedList* newList;
-	LinkedList* newListII;
-	int idAux;
-	int idCliente;
-	char nombreArchivo[LEN_AUX];
-	int cantidadAfiches;
-	int cantidadAfichesII;
-	char zona[LEN_AUX];
-	int index;
-	int indexCliente;
-	int opcionAux;
-	char numero[LEN_AUX] = "1";
+	LinkedList* newList= NULL;
+	int estadoNumAux;
+	int auxiliar;
 	int i;
 	int j;
-	int contador;
 
-	newList = ll_subList(pArrayListCliente,0,ll_len(pArrayListCliente));
-	newListII = ll_subList(pArrayListCliente,0,ll_len(pArrayListCliente));
-
-	if(pArrayListAfiche != NULL && pArrayListCliente != NULL && opcion > 0 )
+	newList=ll_clone(pArrayListCliente);
+	if(pArrayListAfiche != NULL && pArrayListCliente != NULL)
 		{
-	//	afiche_FiltrarNoCobrados(pArrayListAfiche);
-			//controller_ListAfiche(pArrayListAfiche);
-
 
 		for(i=0;i<ll_len(pArrayListCliente);i++)
 		{
 			auxCliente = (Cliente*)ll_get(newList,i);
-			auxClienteII = (Cliente*)ll_get(newListII,i);
-			contador=0;
-
-
+			auxiliar=0;
 			for(j=0;j<ll_len(pArrayListAfiche); j++)
 			{
-
-
 				auxAfiche = (Afiche*)ll_get(pArrayListAfiche,j);
-				cantidadAfiches=0;
 				if(auxCliente->id == auxAfiche->idCliente)
 				{
-
-					if(auxAfiche->estadoNum == 0)
+					afiche_getEstadoNum(auxAfiche, &estadoNumAux);
+					if(estadoNumAux== 0)
 					{
-						cliente_setCantidadAfichesCliente(auxCliente, 6);
-						//auxCliente->cantidadAfichesCliente++;
-					}else
-					{
-						printf("\nPOINTER\n");
-					//	auxClienteII->cantidadAfichesCliente++;
+						auxiliar++;
+						cliente_setCantidadAfichesCliente(auxCliente, auxiliar);
 					}
-				}
-
 			}
-		}
-
-
-//		if(opcion == 1)
-//		{
-//			retorno = 0;
+		}}
 			controller_saveAsTextCliente("Clientes_ACobrar.txt",newList);
-/*		}else
-		{
-			retorno = 0;
-			controller_saveAsTextCliente("Clientes_Cobrados.txt",newListII);
-		}
-*/
 		retorno = 0;
-
 		}
-
 	return retorno;
 }
 
 
+
+int controller_InfoCobrado(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente)
+{
+	int retorno = -1;
+	Afiche* auxAfiche;
+
+	Cliente* auxCliente;
+	LinkedList* newList= NULL;
+	int estadoNumAux;
+	int auxiliar;
+	int i;
+	int j;
+
+	newList=ll_clone(pArrayListCliente);
+	if(pArrayListAfiche != NULL && pArrayListCliente != NULL)
+		{
+
+		for(i=0;i<ll_len(pArrayListCliente);i++)
+		{
+			auxCliente = (Cliente*)ll_get(newList,i);
+			auxiliar=0;
+			for(j=0;j<ll_len(pArrayListAfiche); j++)
+			{
+				auxAfiche = (Afiche*)ll_get(pArrayListAfiche,j);
+				if(auxCliente->id == auxAfiche->idCliente)
+				{
+					afiche_getEstadoNum(auxAfiche, &estadoNumAux);
+					if(estadoNumAux== 1)
+					{
+						auxiliar++;
+						cliente_setCantidadAfichesCliente(auxCliente, auxiliar);
+					}
+			}
+		}}
+			controller_saveAsTextCliente("Clientes_Cobrados.txt",newList);
+		retorno = 0;
+		}
+	return retorno;
+}
 
 
 

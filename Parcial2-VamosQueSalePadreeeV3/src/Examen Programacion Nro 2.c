@@ -100,15 +100,19 @@ int main(void) {
 
 	                	sublistaIII=ll_clone(listaClientes);
 
-	                	controller_InfoCobro(sublistaIII,listaAfiches,1);
-
+	                	controller_InfoACobrar(listaAfiches,listaClientes);
+	                //	controller_ListCliente(sublistaIII);
 
 
 	                //	controller_ListAfiche(listaAfiches);
 	                    break;
 	                case 6:
 
-	                	controller_ListCliente(listaClientes);
+	                	sublistaIII=ll_clone(listaClientes);
+
+	                	 controller_InfoCobrado(listaAfiches, sublistaIII);
+
+
 	                    break;
 	                case 7:
 	                	info_CantVentasXCliente(listaAfiches,listaClientes, 1);

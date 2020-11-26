@@ -22,4 +22,5 @@ void* buscarPorId(LinkedList* list, int id,int choiceList);
 int afiche_compararStatus(void* this, void* arg);
 int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);
 int controller_editAficheAcobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);
-int controller_InfoCobro(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente, int opcion);
+int controller_InfoACobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);
+int controller_InfoCobrado(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);
