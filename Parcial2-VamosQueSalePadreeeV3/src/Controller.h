@@ -1,5 +1,11 @@
 #include "Cliente.h"
 
+
+#define MAX 0
+#define MIN 1
+#define TO_CHARGE 1
+#define CHARGED 2
+#define CLIENT 1
 int controller_loadFromTextCliente(char* path , LinkedList* pArrayListCliente);
 int controller_loadFromTextAfiche(char* path , LinkedList* pArrayListCliente);
 int controller_loadFromBinary(char* path , LinkedList* pArrayListCliente);
@@ -24,3 +30,4 @@ int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCl
 int controller_editAficheAcobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);
 int controller_InfoACobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);
 int controller_InfoCobrado(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);
+int controller_InfoMayor(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente);

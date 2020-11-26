@@ -30,6 +30,7 @@ int main(void) {
 	LinkedList* sublista;
 	LinkedList* sublistaII;
 	LinkedList* sublistaIII;
+	LinkedList* sublista4;
 	int to;
 	int from;
 	LinkedList* listaClientes = ll_newLinkedList();
@@ -115,7 +116,12 @@ int main(void) {
 
 	                    break;
 	                case 7:
-	                	info_CantVentasXCliente(listaAfiches,listaClientes, 1);
+
+	                	info_generateEstadistics(listaAfiches, listaClientes);
+	               // 	sublista4=ll_clone(listaClientes);
+	               // controller_InfoMayor(listaAfiches, sublista4);
+
+	                //	info_CantVentasXCliente(listaAfiches,listaClientes, 1);
 
 	                    break;
 	                case 8:

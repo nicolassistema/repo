@@ -740,3 +740,48 @@ int ll_reduce(LinkedList* this, int (*pFunc)(void*, int, int))
 
 	return valor;
 }
+
+
+int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg)
+{
+	int returnAux = -1;
+	void* pAux;
+	int i;
+
+	if (this != NULL && pFunc != NULL)
+	{
+		for (i = ll_len(this) - 1; i >= 0; i--)
+		{
+			pAux = ll_get(this, i);
+			if (pAux != NULL)
+			{
+				if (pFunc(pAux,arg) == 0)
+				{
+					returnAux = ll_remove(this, i);
+				}
+			}
+		}
+	}
+	return returnAux;
+}
+
+
+int ll_reduceInt2(LinkedList* this,int (*pFunc)(void*,void*),void* arg)
+{
+	void *pAux;
+	int i;
+	int acum = 0;
+
+	if (this != NULL && pFunc != NULL)
+	{
+		for (i = 0; i < ll_len(this); i++)
+		{
+			pAux = ll_get(this, i);
+			if (pAux != NULL)
+			{
+				acum = acum + pFunc(pAux,arg);
+			}
+		}
+	}
+	return acum;
+}
