@@ -60,8 +60,8 @@
 60,35,Bendell,3,caba,0
 61,6,Creedland,1,caba,0
 62,28,Showl,2,caba,0
-63,96,Quenell,1,caba,0
-64,74,Kidds,5,caba,0
+63,73,Quenell,1,caba,0
+64,73,Kidds,5,caba,0
 65,20,Garret,2,caba,0
 66,10,Dagnall,1,caba,0
 67,20,Clurow,3,caba,0

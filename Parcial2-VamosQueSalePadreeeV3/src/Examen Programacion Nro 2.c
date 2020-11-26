@@ -29,6 +29,7 @@ int main(void) {
 	int contadorAux;
 	LinkedList* sublista;
 	LinkedList* sublistaII;
+	LinkedList* sublistaIII;
 	int to;
 	int from;
 	LinkedList* listaClientes = ll_newLinkedList();
@@ -94,7 +95,16 @@ int main(void) {
 	                	controller_ListAfiche(listaAfiches);
 	                    break;
 	                case 5:
-	                	controller_ListAfiche(listaAfiches);
+
+
+
+	                	sublistaIII=ll_clone(listaClientes);
+
+	                	controller_InfoCobro(sublistaIII,listaAfiches,1);
+
+
+
+	                //	controller_ListAfiche(listaAfiches);
 	                    break;
 	                case 6:
 
