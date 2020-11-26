@@ -947,6 +947,10 @@ static int idMaximoEncontrado(LinkedList* pArrayListCliente, int* idMaximo)
 	return retorno;
 }
 
+
+
+
+
 int controller_containsElemento(LinkedList* pArrayListCliente, Cliente* cliente )
 {
 	int retorno = -1;

@@ -51,7 +51,7 @@ int main(void) {
 	        						  "6. Generar informe de deudas\n"
 	        						  "7. Generar estadísticas\n"
 	        			 	 	 	  ". *********************************************************\n"
-	        						  "18. Salir\n",
+	        						  "8. Salir\n",
 	    							  "Opción inválida\n",
 	    							  1,8,2);
 	            switch(option)
@@ -75,7 +75,7 @@ int main(void) {
 	                case 3:
 	                	if(controller_editAfiche(listaAfiches, listaClientes) != -1)
 	                	{
-	                		controller_saveAsTextAfiche("Afiches.txt", listaAfiches);
+	                		controller_saveAsTextAfiche("Afiche.txt", listaAfiches);
  		                }
 	                	controller_ListAfiche(listaAfiches);
 	                    break;
@@ -88,28 +88,19 @@ int main(void) {
 	                    break;
 	                case 5:
 
-
-
 	                	sublistaIII=ll_clone(listaClientes);
 
-	                	controller_InfoACobrar(listaAfiches,listaClientes);
-	                //	controller_ListCliente(sublistaIII);
+	                	controller_InfoCobrado(listaAfiches, sublistaIII);
 
-
-	                //	controller_ListAfiche(listaAfiches);
 	                    break;
 	                case 6:
 
 	                	sublistaIII=ll_clone(listaClientes);
-
-	                	 controller_InfoCobrado(listaAfiches, sublistaIII);
+	                    controller_InfoACobrar(listaAfiches,sublistaIII);
 
 
 	                    break;
 	                case 7:
-	          //      	informes_encontrarClienteConMasVentas(listaAfiches,listaClientes);
-
-
 
 	                	do
 	                				{
@@ -131,88 +122,12 @@ int main(void) {
 	                					}
 
 	                				}while (subMenu!=4);
-	                //	info_generateEstadistics(listaAfiches, listaClientes);
-	               // 	sublista4=ll_clone(listaClientes);
-	               // controller_InfoMayor(listaAfiches, sublista4);
-
-	                //	info_CantVentasXCliente(listaAfiches,listaClientes, 1);
 
 	                    break;
-	                case 8:
-	                	info_CantVentasXCliente(listaAfiches,listaClientes, 0);
-	                    break;
-	                case 9:
 
-	                 if( controller_addAfiche(listaAfiches,listaClientes) != -1){
-
-						controller_saveAsTextAfiche("Afiche.txt",listaAfiches);
-
-
-	                 }
-
-	                	//controller_saveAsBinary("data.dat",listaClientes);
-	                    break;
-	                case 10:
-	                	if(archivoCargado == 0)
-							{
-								if(!controller_loadFromTextAfiche("Afiches.txt",listaAfiches))
-								{
-									archivoCargado = 1;
-								}
-							}
-	                	break;
-	                case 11:
-	                	utn_getNumero(&to,"Ingrese ID\n","ID incorrecto\n",0,ll_len(listaClientes),2);
-	                	auxCliente = ll_get(listaClientes,to-1);
-	                	controller_containsElemento(listaClientes,auxCliente);
-						auxIndice = ll_indexOf(listaClientes,auxCliente);
-						if(auxIndice != -1)
-						{
-							printf("El empleado se encuentra en el indice %d\n", auxIndice);
-							cliente_imprimir(auxCliente);
-						}
-	                	break;
-	                case 12:
-	                	if(ll_clone(listaClientes) != NULL)
-	                	{
-	                		printf("Lista clonada\n");
-	                		sublista = ll_clone(listaClientes);
-	                		ll_map(sublista,cliente_imprimirGral);
-	                	}
-	                	break;
-	                case 13:
-	                	if(!utn_getNumero(&from,"Ingrese desde donde quiere crear la sublista\n"
-	                					,"Valor incorecto\n", 0, ll_len(listaClientes),2) &&
-										!utn_getNumero(&to,"Ingrese hasta donde quiere crear la sublista\n"
-										,"Valor incorecto\n", 0, ll_len(listaClientes),2))
-	                	{
-							sublistaII = ll_subList(listaClientes,from-1,to);
-							if(sublistaII != NULL)
-							{
-							ll_map(sublistaII,cliente_imprimirGral);
-							contadorAux = ll_count(sublistaII,calcularElementos);
-							printf("Sublista creada\n");
-							printf("Hay %d empleados seleccionados\n\n",contadorAux);
-							}
-	                	}
-	                	break;
-	                case 14:
-	                	if(ll_containsAll(listaClientes,sublistaII)==1)
-	                	{
-	                		printf("Los elementos de sublista están contenidos\n\n");
-	                	}
-	                	else if(ll_containsAll(listaClientes,sublistaII)==0)
-	                	{
-	                		printf("Al menos un elemento no está contenido\n");
-	                	}
-	                	else
-	                	{
-	                		printf("La lista es NULL\n");
-	                	}
-	                	break;
 
 	            }
-	        }while(option != 18);
+	        }while(option != 8);
 	    return 0;
 	    return EXIT_SUCCESS;
 	}
