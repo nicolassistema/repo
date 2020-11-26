@@ -274,7 +274,7 @@ int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCl
 	int index;
 	int indexCliente;
 	int opcionAux;
-	char numero[1] = "0";
+	char numero[LEN_AUX] = "0";
 
 
 
@@ -324,6 +324,75 @@ int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCl
 
 	return retorno;
 }
+
+
+
+
+int controller_editAficheAcobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListCliente)
+{
+	int retorno = -1;
+	Afiche* auxAfiche;
+	Afiche afiche;
+	Cliente* auxCliente;
+	//LinkedList* newList = NULL;
+	int idAux;
+	int idCliente;
+	char nombreArchivo[LEN_AUX];
+	int cantidadAfiches;
+	char zona[LEN_AUX];
+	int index;
+	int indexCliente;
+	int opcionAux;
+	char numero[LEN_AUX] = "1";
+
+
+
+	if(pArrayListAfiche != NULL)
+		{
+		afiche_FiltrarNoCobrados(pArrayListAfiche);
+			//controller_ListAfiche(pArrayListAfiche);
+			if(!utn_getNumero(&idAux,"Ingrese el ID que desea editar\n","ID inválido\n",0,ll_len(pArrayListAfiche), 2))
+			{
+				index = controller_buscarPorIdArray(pArrayListAfiche, idAux);
+				auxAfiche = (Afiche*)ll_get(pArrayListAfiche,index);
+				if(auxAfiche != NULL)
+				{
+
+					indexCliente = controller_buscarPorIdArray(pArrayListCliente, auxAfiche->idCliente);
+					auxCliente = (Cliente*)ll_get(pArrayListCliente,indexCliente);
+					cliente_imprimir(auxCliente);
+
+					afiche_imprimir(auxAfiche);
+
+					if(!utn_getNumero(&opcionAux,"Confirmar cobro del afiche? [0-NO/1-SI]\n","Opción inválida\n",0,1,2) && opcionAux == 1)
+				{
+						afiche_setEstadoNumTxt(auxAfiche, numero);
+						retorno = 0;
+					}
+					}
+
+			}
+		}
+
+
+	return retorno;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /** \brief Baja de empleado
  *

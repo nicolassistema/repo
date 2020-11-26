@@ -93,7 +93,7 @@
 94,29,Pointon,3,caba,0
 95,24,Cuttelar,5,caba,0
 96,70,Eggleston,4,caba,0
-97,39,Tregensoe,4,caba,0
-98,32,dsadsad,50,caba,0
-99,100,xxxxxxxx,40,CABA,0
+97,99,dddddd,69,CABA,1
+98,32,dsadsad,50,caba,1
+99,99,jjjjjj,69,caba,1
 100,29,Everson,3,caba,0

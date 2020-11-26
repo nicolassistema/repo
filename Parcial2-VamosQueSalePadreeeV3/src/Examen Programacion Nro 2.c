@@ -84,14 +84,20 @@ int main(void) {
 	                	{
 	                		controller_saveAsTextAfiche("Afiches.txt", listaAfiches);
  		                }
+	                	controller_ListAfiche(listaAfiches);
 	                    break;
 	                case 4:
-	                	controller_editCliente(listaClientes);
+	                	if(controller_editAficheAcobrar(listaAfiches, listaClientes) != -1)
+						{
+						  		controller_saveAsTextAfiche("Afiches.txt", listaAfiches);
+						}
+	                	controller_ListAfiche(listaAfiches);
 	                    break;
 	                case 5:
-
+	                	controller_ListAfiche(listaAfiches);
 	                    break;
 	                case 6:
+
 	                	controller_ListCliente(listaClientes);
 	                    break;
 	                case 7:
