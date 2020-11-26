@@ -31,6 +31,7 @@ int main(void) {
 	LinkedList* sublistaII;
 	LinkedList* sublistaIII;
 	LinkedList* sublista4;
+	int subMenu;
 	int to;
 	int from;
 	LinkedList* listaClientes = ll_newLinkedList();
@@ -106,7 +107,30 @@ int main(void) {
 
 	                    break;
 	                case 7:
-	                	informes_encontrarClienteConMasVentas(listaAfiches,listaClientes);
+	          //      	informes_encontrarClienteConMasVentas(listaAfiches,listaClientes);
+
+
+
+	                	do
+	                				{
+	                					if(utn_getNumero(&subMenu, "\n 1)Cliente con mas afiches vendidos\n "
+	                							"2)Cliente con menos afiches vendidos \n"
+	                							" 3)Venta con mas afiches vendidos\n", "error", 1, 4, 2) == 0)
+	                					{
+	                						switch (subMenu) {
+	                							case 1:
+	                								informes_encontrarClienteConMasVentas(listaAfiches,listaClientes);
+	                								break;
+	                							case 2:
+	                								informes_encontrarClienteConMenosVentas(listaAfiches,listaClientes);
+	                								break;
+	                							case 3:
+	                								informes_findClienteConMasAfiches(listaAfiches,listaClientes);
+	                								break;
+	                						}
+	                					}
+
+	                				}while (subMenu!=4);
 	                //	info_generateEstadistics(listaAfiches, listaClientes);
 	               // 	sublista4=ll_clone(listaClientes);
 	               // controller_InfoMayor(listaAfiches, sublista4);
