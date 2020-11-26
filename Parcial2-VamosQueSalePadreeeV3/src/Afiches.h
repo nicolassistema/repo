@@ -2,6 +2,8 @@
 #define afiche_H_INCLUDED
 
 #define NOMBRE_LEN 128
+
+#include "LinkedList.h"
 typedef struct
 {
     int id;
@@ -53,5 +55,6 @@ int afiche_getEstadoNumTxt(Afiche* this,char* estadoNum);
 
 int afiche_imprimir(Afiche* this);
 int afiche_imprimirUno(void* this);
+int afiche_FiltrarNoCobrados(LinkedList* pArrayListAfiches);
 
 #endif // afiche_H_INCLUDED

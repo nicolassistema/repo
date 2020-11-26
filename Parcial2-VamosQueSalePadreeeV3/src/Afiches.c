@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
+#include "LinkedList.h"
 
 #define LEN_AUX 128
 
@@ -779,6 +780,34 @@ int afiche_imprimirUno(void* this)
 		retorno = 0;
 	}
 	return retorno;
+}
+
+int afiche_FiltrarNoCobrados(LinkedList* pArrayListAfiches){
+
+	int retorno = -1;
+	Afiche* auxAfiche;
+	int auxEstado;
+
+	auxAfiche = afiche_new();
+
+
+	for(int i = 0; i< ll_len(pArrayListAfiches);i++){
+
+		auxAfiche = ll_get(pArrayListAfiches, i);
+
+		afiche_getEstadoNum(auxAfiche, &auxEstado);
+
+		if(auxEstado == 0){
+
+
+			afiche_imprimir(auxAfiche);
+			retorno = 0;
+		}
+	}
+
+
+	return retorno;
+
 }
 
 

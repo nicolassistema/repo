@@ -131,7 +131,7 @@ int controller_addAfiche(LinkedList* pArrayListAfiches,LinkedList* pArrayListACl
 	char zona[LEN_AUX];
 	//char estado[LEN_AUX];
 	int estadoNum;
-	char numero[1] = "0";
+	char numero[LEN_AUX] = "0";
 
 
 	if(pArrayListAfiches != NULL)
@@ -272,6 +272,7 @@ int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCl
 	int cantidadAfiches;
 	char zona[LEN_AUX];
 	int index;
+	int indexCliente;
 	int opcionAux;
 	char numero[1] = "0";
 
@@ -279,15 +280,20 @@ int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCl
 
 	if(pArrayListAfiche != NULL)
 		{
-			controller_ListAfiche(pArrayListAfiche);
+		afiche_FiltrarNoCobrados(pArrayListAfiche);
+			//controller_ListAfiche(pArrayListAfiche);
 			if(!utn_getNumero(&idAux,"Ingrese el ID que desea editar\n","ID inválido\n",0,ll_len(pArrayListAfiche), 2))
 			{
 				index = controller_buscarPorIdArray(pArrayListAfiche, idAux);
 				auxAfiche = (Afiche*)ll_get(pArrayListAfiche,index);
 				if(auxAfiche != NULL)
 				{
-					afiche_imprimir(auxAfiche);
 
+					indexCliente = controller_buscarPorIdArray(pArrayListCliente, auxAfiche->idCliente);
+					auxCliente = (Cliente*)ll_get(pArrayListCliente,indexCliente);
+					cliente_imprimir(auxCliente);
+
+					afiche_imprimir(auxAfiche);
 
 					if(!utn_getNumero(&opcionAux,"Confirma modificar el afiche? [0-NO/1-SI]\n","Opción inválida\n",0,1,2) && opcionAux == 1)
 					{
@@ -302,7 +308,7 @@ int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCl
 						retorno = 0;
 
 
-					//	afiche_getId(auxAfiche, &idAux);
+						afiche_setId(auxAfiche, idAux);
 						afiche_setIdCliente(auxAfiche, idCliente);
 						afiche_setNombreArchivo(auxAfiche, nombreArchivo);
 						afiche_setCantidadAfiches(auxAfiche, cantidadAfiches);
@@ -325,6 +331,8 @@ int controller_editAfiche(LinkedList* pArrayListAfiche, LinkedList* pArrayListCl
  * \return int Retorna 0 OK o (-1) ERROR
  *
  */
+
+
 int controller_removeCliente(LinkedList* pArrayListCliente)
 {
 	int retorno = -1;
@@ -335,6 +343,7 @@ int controller_removeCliente(LinkedList* pArrayListCliente)
 
 	if(pArrayListCliente != NULL)
 	{
+
 		controller_ListCliente(pArrayListCliente);
 		if(!utn_getNumero(&auxID,"Ingrese el ID que desea eliminar\n","ID inválido\n",0,ll_len(pArrayListCliente), 2))
 		{

@@ -40,13 +40,14 @@ int main(void) {
 
 
 	 do{
-	        	utn_getNumero(&option,"1. Cargar los datos de los empleados desde el archivo data.csv (modo texto)\n"
-	        						  "2. Cargar los datos de los empleados desde el archivo data.csv (modo binario)\n"
-	        						  "3. Alta de empleado\n" //FALTA PULIR
-	        						  "4. Modificar datos de empleado\n"
-	        						  "5. Baja de empleado\n"
-	        						  "6. Listar empleados\n"
-	        						  "7. Ordenar empleados por nombre\n"
+	        	utn_getNumero(&option,"1. Agregar Cliente\n"
+	        						  "2. Vender Afiches\n"
+	        						  "3. Modificar venta\n" //FALTA PULIR
+	        						  "4. Cobrar venta\n"
+	        						  "5. Generar informe de cobros\n"
+	        						  "6. Generar informe de deudas\n"
+	        						  "7. Generar estadísticas\n"
+	        			 	 	 	  ". *********************************************************\n"
 	        						  "8. Ordenar empleados por ID\n"
 	        						  "9. Guardar los datos de los empleados en el archivo data.csv (modo binario)\n"
 	        						  "10. Guardar los datos de los empleados en el archivo data.csv (modo texto)\n"
@@ -63,46 +64,31 @@ int main(void) {
 	            switch(option)
 	            {
 	                case 1:
-	                	if(archivoCargado == 0)
-	                	{
-	                		controller_loadFromTextCliente("Clientes.txt",listaClientes);
-	                		//controller_saveAsTextCliente("Clientes.txt",listaClientes);
-	                	}
+	                	if(controller_addCliente(listaClientes)!=-1)
+	                	 	 {
+	                			controller_saveAsTextCliente("Clientes.txt",listaClientes);
+	                	 	 }
 	                	else
 	                	{
 	                		printf("Archivo ya cargado\n");
 	                	}
 	                    break;
 	                case 2:
-	                	if(archivoCargado == 0)
-	                	{
-							//controller_loadFromBinary("data.dat",listaClientes);
-							archivoCargado = 1;
-	                    }
-	                	else
-						{
-							printf("Archivo ya cargado\n");
-						}
+		                 if(controller_addAfiche(listaAfiches,listaClientes)!= -1){
+//								   controller_ListAfiche(listaAfiches);
+							controller_saveAsTextAfiche("Afiche.txt",listaAfiches);
+		                 }
 	                    break;
 	                case 3:
-	                	if(controller_addCliente(listaClientes)!=-1)
-	                	  {
-	                	    controller_saveAsTextCliente("Clientes.txt",listaClientes);
-	                	   }
-
-
-
-
+	                	if(controller_editAfiche(listaAfiches, listaClientes) != -1)
+	                	{
+	                		controller_saveAsTextAfiche("Afiches.txt", listaAfiches);
+ 		                }
 	                    break;
 	                case 4:
 	                	controller_editCliente(listaClientes);
 	                    break;
 	                case 5:
-	                	controller_editAfiche(listaAfiches, listaClientes);
-	                	controller_ListAfiche(listaAfiches);
-
-	                		controller_saveAsTextAfiche("Afiches.txt", listaAfiches);
-
 
 	                    break;
 	                case 6:
