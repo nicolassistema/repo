@@ -50,19 +50,9 @@ int main(void) {
 	        						  "6. Generar informe de deudas\n"
 	        						  "7. Generar estadísticas\n"
 	        			 	 	 	  ". *********************************************************\n"
-	        						  "8. Ordenar empleados por ID\n"
-	        						  "9. Guardar los datos de los empleados en el archivo data.csv (modo binario)\n"
-	        						  "10. Guardar los datos de los empleados en el archivo data.csv (modo texto)\n"
-	        						  "11. Buscar empleado\n"
-	        						  "12. Clonar lista\n"
-	        						  "13. Crear sublista\n"
-	        						  "14. Corroborar sublista\n"
-	        						  "15. Filtrar por más de 300 horas trabajadas\n"
-	        						  "16. El sueldo más alto\n"
-	        						  "17. Liquidación total mensual\n"
 	        						  "18. Salir\n",
 	    							  "Opción inválida\n",
-	    							  1,18,2);
+	    							  1,8,2);
 	            switch(option)
 	            {
 	                case 1:
@@ -116,8 +106,8 @@ int main(void) {
 
 	                    break;
 	                case 7:
-
-	                	info_generateEstadistics(listaAfiches, listaClientes);
+	                	informes_encontrarClienteConMasVentas(listaAfiches,listaClientes);
+	                //	info_generateEstadistics(listaAfiches, listaClientes);
 	               // 	sublista4=ll_clone(listaClientes);
 	               // controller_InfoMayor(listaAfiches, sublista4);
 

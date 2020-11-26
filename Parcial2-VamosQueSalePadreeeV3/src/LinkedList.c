@@ -785,3 +785,58 @@ int ll_reduceInt2(LinkedList* this,int (*pFunc)(void*,void*),void* arg)
 	}
 	return acum;
 }
+
+
+
+
+int ll_mapAndBreak(LinkedList* this, int (*pFunc)(void*,int),int id)
+{
+    int returnAux =-1;
+    int len = ll_len(this);
+    void* pElemento;
+
+    if(this!=NULL)
+    {
+        for (int i = 0;i<len;i++)
+        {
+            pElemento=ll_get(this, i);
+            if(pFunc(pElemento,id)==1)
+            {
+                returnAux=i;
+                break;
+            }
+        }
+    }
+    return returnAux;
+}
+
+
+
+/** \brief Reduce la lista a un Entero
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param int * prResutlado -> puntero donde devuelve el valor final
+ * \param int idCliente -> idcliente al cual se le quiere hacer el rduce
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                               ( 0) Si ok
+ */
+
+int ll_reduceIntbyID(LinkedList* this, int (*pFunc)(void*,int), int * pResultado, int idCliente)
+{
+    int returnAux =-1;
+    int len = ll_len(this);
+    void* pElemento;
+    int resultado=0;
+    if(this!=NULL)
+    {
+
+    	for (int i = 0;i<len;i++)
+    	{
+    		pElemento=ll_get(this, i);
+    		resultado= resultado+pFunc(pElemento,idCliente);
+    		*pResultado=resultado;
+    		returnAux=0;
+    	}
+    }
+    return returnAux;
+}

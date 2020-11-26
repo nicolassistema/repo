@@ -806,3 +806,26 @@ int afiche_FiltrarNoCobrados(LinkedList* pArrayListAfiches){
 }
 
 
+
+int ventas_findMaxAfiches (LinkedList * pArrayListVentas)
+{
+	int retorno =-1;
+	int maxAfiches;
+	int estado;
+	int afichesAux;
+	Afiche * ventasAux;
+	for (int i = 0; i<ll_len(pArrayListVentas);i++)
+	{
+		ventasAux = ll_get(pArrayListVentas, i);
+		afiche_getCantidadAfiches(ventasAux, &afichesAux);
+		afiche_getEstadoNum(ventasAux, &estado);
+		if (i == 0 || (estado ==COBRADA &&afichesAux>=maxAfiches))
+		{
+			maxAfiches = afichesAux;
+			retorno = i;
+		}
+	}
+	return retorno;
+}
+
+

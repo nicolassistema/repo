@@ -3,6 +3,10 @@
 
 #define NOMBRE_LEN 128
 
+#define A_COBRAR 0
+#define COBRADA 1
+
+
 #include "LinkedList.h"
 typedef struct
 {

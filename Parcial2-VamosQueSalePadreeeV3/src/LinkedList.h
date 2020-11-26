@@ -57,3 +57,4 @@ int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg);
 int ll_count(LinkedList* this, int (*pFunc)(void*));
 int ll_countAcumulador(LinkedList* this, int (*pFunc)(void*));
 int ll_reduce(LinkedList* this, int (*pFunc)(void*, int, int));
+int ll_reduceInt2(LinkedList* this,int (*pFunc)(void*,void*),void* arg);
