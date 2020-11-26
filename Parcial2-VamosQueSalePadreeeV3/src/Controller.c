@@ -388,12 +388,16 @@ int controller_InfoACobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListC
 
 	Cliente* auxCliente;
 	LinkedList* newList= NULL;
+	LinkedList* newList2 = NULL;
+	newList2 = ll_newLinkedList();
 	int estadoNumAux;
 	int auxiliar;
 	int i;
 	int j;
 
 	newList=ll_clone(pArrayListCliente);
+
+
 	if(pArrayListAfiche != NULL && pArrayListCliente != NULL)
 		{
 
@@ -410,11 +414,19 @@ int controller_InfoACobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListC
 					if(estadoNumAux== 0)
 					{
 						auxiliar++;
-						cliente_setCantidadAfichesCliente(auxCliente, auxiliar);
 					}
 			}
-		}}
-			controller_saveAsTextCliente("Clientes_ACobrar.txt",newList);
+
+		}
+			cliente_setCantidadAfichesCliente(auxCliente, auxiliar);
+			if(auxiliar>0)
+			{
+				ll_add(newList2,auxCliente);
+
+				system("pause");
+			}
+		}controller_ListCliente(newList2);
+			controller_saveAsTextCliente("Clientes_ACobrar.txt",newList2);
 		retorno = 0;
 		}
 	return retorno;
@@ -429,6 +441,8 @@ int controller_InfoCobrado(LinkedList* pArrayListAfiche, LinkedList* pArrayListC
 
 	Cliente* auxCliente;
 	LinkedList* newList= NULL;
+	LinkedList* newList2 = NULL;
+	newList2 = ll_newLinkedList();
 	int estadoNumAux;
 	int auxiliar;
 	int i;
@@ -451,11 +465,21 @@ int controller_InfoCobrado(LinkedList* pArrayListAfiche, LinkedList* pArrayListC
 					if(estadoNumAux== 1)
 					{
 						auxiliar++;
-						cliente_setCantidadAfichesCliente(auxCliente, auxiliar);
+
 					}
+				}
 			}
-		}}
-			controller_saveAsTextCliente("Clientes_Cobrados.txt",newList);
+			cliente_setCantidadAfichesCliente(auxCliente, auxiliar);
+			if(auxiliar>0)
+						{
+							ll_add(newList2,auxCliente);
+
+							system("pause");
+						}
+
+
+		}controller_ListCliente(newList2);
+			controller_saveAsTextCliente("Clientes_Cobrados.txt",newList2);
 		retorno = 0;
 		}
 	return retorno;
