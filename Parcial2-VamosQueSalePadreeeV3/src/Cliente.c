@@ -477,6 +477,45 @@ int cliente_imprimir(Cliente* this)
 
 
 /**
+ * \brief Funcion criterio para imprimir todos los datos de un Cliente
+ * \param void*thisA -> puntero a void
+ * \param int idCliente -> id del cliente a imprimir.
+ * \return (-1) Error / (0) Ok
+ */
+
+
+int cliente_imprimirPorId(void* this, int idCliente)
+{
+	int retorno = -1;
+	//Cliente * clienteAux = (Cliente*)this;
+	//Cliente * clienteAux = (Cliente*)this;
+	//char idAux[LEN_AUX];
+	int idAux;
+	char nombre[LEN_AUX];
+	char apellido[LEN_AUX];
+	char cuit[LEN_AUX];
+	if (cliente_getId(this, &idAux)==0 && idAux == idCliente)
+	 {
+		retorno = 0;
+				cliente_getId(this,&idAux);
+				cliente_getNombre(this,nombre);
+				cliente_getApellido(this, apellido);
+				cliente_getCuit(this, cuit);
+
+				printf("ID: %10d - Nombre %10s - Apellido: %10s - Cuit %10s\n",idAux
+																			   ,nombre
+																			   ,apellido
+																			   ,cuit);
+				retorno = 0;
+	 }
+
+	return retorno;
+}
+
+
+
+
+/**
  * \brief Imprime los datos de un Empleado
  * \param pElemento Puntero al Empleado que se busca imprimir
  * \return Retorna 0 (EXITO) y -1 (ERROR)
@@ -584,44 +623,7 @@ int cliente_ordenarID(void* auxUno, void* auxDos)
 	return retorno;
 }
 
-/**
- * \brief Calcula Total
- * \param EmpUno void* Puntero al elemento que se busca clasificar
- * \return int Retorna -1 (ERROR)
- * 					    1(OK)
- */
 
-
-
-/**
- * \brief Informa horas bajo criterio
- * \param EmpUno void* Puntero al elemento que se busca clasificar
- * \return int Retorna -1 (ERROR)
- * 					    1(OK CRITERO)
- * 					    0(NO CRITERIO)
- */
-
-
-
-
-
-/**
- * \brief Compara sueldos Total
- * \param EmpUno void* Puntero al elemento que se busca clasificar
- * \return int Retorna -1 (ERROR)
- * 					    auxValor(OK)
- */
-
-
-
-
-/**
- * \brief Informa horas bajo criterio
- * \param EmpUno void* Puntero al elemento que se busca clasificar
- * \return int Retorna -1 (ERROR)
- * 					    1(OK CRITERO)
- * 					    0(NO CRITERIO)
- */
 
 
 int calcularElementos(void* auxElemento)

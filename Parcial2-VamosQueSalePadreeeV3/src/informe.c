@@ -31,7 +31,6 @@
  * \return int (0) ok  / -1 ERROR
  *
  */
-
 int informes_findClienteConMasAfiches(LinkedList* pArrayListVentas,LinkedList* pArrayListClientes)
 {
 	int retorno=-1;
@@ -41,21 +40,25 @@ int informes_findClienteConMasAfiches(LinkedList* pArrayListVentas,LinkedList* p
 	if (pArrayListClientes!=NULL && pArrayListVentas!=NULL)
 	{
 		indice = ventas_findMaxAfiches(pArrayListVentas);
-		if (indice>=0)
+	if (indice!= -1)
 		{
+
 			ventasAux = ll_get(pArrayListVentas, indice);
 			if (ventasAux!=NULL)
 			{
-				ll_mapAndBreak(pArrayListVentas,afiche_imprimir, indice+1);
+				printf("\nLa venta con mas afiches es: \n");
+				ll_mapAndBreak(pArrayListVentas,afiche_imprimirPorId, indice);
 				afiche_getIdCliente(ventasAux, &idClienteAux);
-				printf("\n Datos del Cliente");
-				ll_mapAndBreak(pArrayListClientes, cliente_imprimir, idClienteAux);
+				printf("\n Datos del Cliente:\n");
+				ll_mapAndBreak(pArrayListClientes, cliente_imprimirPorId, idClienteAux);
 				retorno = 0;
 			}
 		}
 	}
 	return retorno;
 }
+
+
 
 /** \brief Encuentra el cliente con mas ventas cobradas y lo imprime por consola
  *
@@ -64,7 +67,6 @@ int informes_findClienteConMasAfiches(LinkedList* pArrayListVentas,LinkedList* p
  * \return int (0) ok - (-1) ERROR
  *
  */
-
 int informes_encontrarClienteConMasVentas (LinkedList*pArrayListVentas,LinkedList*pArrayListClientes)
 {
 	int retorno = -1;
@@ -75,10 +77,12 @@ int informes_encontrarClienteConMasVentas (LinkedList*pArrayListVentas,LinkedLis
 		indice =informes_encontrarMayorOMenor(pArrayListVentas,pArrayListClientes,0);
 		Afiche * ventaAux = ll_get(pArrayListVentas, indice);
 		afiche_getIdCliente(ventaAux, &idClienteAux);
-		ll_mapAndBreak(pArrayListClientes,cliente_imprimir,idClienteAux);
+		ll_mapAndBreak(pArrayListClientes,cliente_imprimirPorId,idClienteAux);
 	}
 return retorno;
 }
+
+
 
 /** \brief Encuentra el cliente con mas ventas cobradas y lo imprime por consola
  *
@@ -87,18 +91,18 @@ return retorno;
  * \return int (0) ok - (-1) ERROR
  *
  */
-
 int informes_encontrarClienteConMenosVentas (LinkedList*pArrayListVentas,LinkedList*pArrayListClientes)
 {
 	int retorno = -1;
 	int indice;
 	int idClienteAux;
-	indice =informes_encontrarMayorOMenor(pArrayListVentas,pArrayListClientes,1);
+	indice =informes_encontrarMayorOMenor(pArrayListVentas,pArrayListClientes,0);
 	Afiche * ventaAux = ll_get(pArrayListVentas, indice);
 	afiche_getIdCliente(ventaAux, &idClienteAux);
-	ll_mapAndBreak(pArrayListClientes,cliente_imprimir,idClienteAux);
+	ll_mapAndBreak(pArrayListClientes,cliente_imprimirPorId,idClienteAux);
 	return retorno;
 }
+
 
 /** \brief Encuentra la cantidad de afiches por id de cliente que se le pasa por parametro
  *
@@ -107,25 +111,21 @@ int informes_encontrarClienteConMenosVentas (LinkedList*pArrayListVentas,LinkedL
  * \return int (>0) ok y catnidad de afiches - (-1) ERROR
  *
  */
-
-
 int informes_cantidadAfichesporId(void*pElemento, int id){
 	int retorno=0;
-	Afiche * ventasAux=pElemento;
+	//Afiche * ventasAux=pElemento;
 	int cantidadAfiches;
 	int idClienteAux;
 	int estado;
-	afiche_getEstadoNum(ventasAux,&estado);
-	if ( estado == COBRADA && afiche_getIdCliente(pElemento, &idClienteAux) == 0 && idClienteAux==id)
+	afiche_getEstadoNum(pElemento,&estado);
+	if ( estado == 1 && afiche_getIdCliente(pElemento, &idClienteAux) == 0 && idClienteAux==id)
 	{
-		afiche_getCantidadAfiches(ventasAux, &cantidadAfiches);
+		afiche_getCantidadAfiches(pElemento, &cantidadAfiches);
 		return cantidadAfiches;
 	}
 
 return retorno;
 }
-
-
 
 
 
@@ -161,11 +161,10 @@ int informes_encontrarMayorOMenor(LinkedList* pArrayListVentas,LinkedList* pArra
 		else
 		{
 			if (i==0 ||  (cantidadAfiches!=0 && mayorAfiches > cantidadAfiches) )
-		{
-			mayorAfiches = cantidadAfiches;
-			retorno = i;
-		}
-
+			{
+				mayorAfiches = cantidadAfiches;
+				retorno = i;
+			}
 		}
 	}
 	 printf("La cantidad de afiches es:%d \n Y pertence al cliente...",mayorAfiches);

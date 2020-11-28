@@ -60,5 +60,7 @@ int afiche_getEstadoNumTxt(Afiche* this,char* estadoNum);
 int afiche_imprimir(Afiche* this);
 int afiche_imprimirUno(void* this);
 int afiche_FiltrarNoCobrados(LinkedList* pArrayListAfiches);
+int afiche_imprimirPorId(Afiche* this, int idAfiche);
+int afiche_IdCobradoEnLista(LinkedList* listaAfiches, int id);
 
 #endif // afiche_H_INCLUDED

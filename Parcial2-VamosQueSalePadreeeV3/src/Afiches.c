@@ -260,6 +260,13 @@ int afiche_getIdTxt(Afiche* this,char* id)
 	return retorno;
 }
 
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_setIdCliente(Afiche* this,int idCliente){
 
 	int retorno = -1;
@@ -271,6 +278,13 @@ int afiche_setIdCliente(Afiche* this,int idCliente){
 	return retorno;
 
 }
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_setIdClienteTxt(Afiche* this,char* idCliente){
 
 	int retorno = -1;
@@ -286,7 +300,12 @@ int afiche_setIdClienteTxt(Afiche* this,char* idCliente){
 
 }
 
-
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_getIdCliente(Afiche* this,int* idCliente){
 
 	int retorno = -1;
@@ -299,6 +318,13 @@ int afiche_getIdCliente(Afiche* this,int* idCliente){
 
 }
 
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 
 int afiche_getIdClienteTxt(Afiche* this,char* idCliente){
 
@@ -313,7 +339,12 @@ int afiche_getIdClienteTxt(Afiche* this,char* idCliente){
 }
 
 
-
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_setCantidadAfiches(Afiche* this,int cantidadAfiches){
 
 	int retorno = -1;
@@ -329,6 +360,13 @@ int afiche_setCantidadAfiches(Afiche* this,int cantidadAfiches){
 
 
 
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_setCantidadAfichesTxt(Afiche* this,char* cantidadAfiches){
 
 	int retorno = -1;
@@ -341,10 +379,16 @@ int afiche_setCantidadAfichesTxt(Afiche* this,char* cantidadAfiches){
 		}
 	}
 	return retorno;
-
-
 }
 
+
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_getCantidadAfiches(Afiche* this,int* cantidadAfiches){
 
 	int retorno = -1;
@@ -354,11 +398,17 @@ int afiche_getCantidadAfiches(Afiche* this,int* cantidadAfiches){
 		*cantidadAfiches = this->cantidadAfiches;
 	}
 	return retorno;
-
-
-
 }
 
+
+
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_getCantidadAfichesTxt(Afiche* this,char* cantidadAfiches){
 
 	int retorno = -1;
@@ -367,12 +417,17 @@ int afiche_getCantidadAfichesTxt(Afiche* this,char* cantidadAfiches){
 		retorno = 0;
 		sprintf(cantidadAfiches,"%d",this->cantidadAfiches);
 	}
-
 	return retorno;
-
-
 }
 
+
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_setEstadoNum(Afiche* this,int estadoNum){
 
 	int retorno = -1;
@@ -382,9 +437,16 @@ int afiche_setEstadoNum(Afiche* this,int estadoNum){
 		this->estadoNum = estadoNum;
 	}
 	return retorno;
-
-
 }
+
+
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_setEstadoNumTxt(Afiche* this,char* estadoNum){
 
 	int retorno = -1;
@@ -397,10 +459,16 @@ int afiche_setEstadoNumTxt(Afiche* this,char* estadoNum){
 		}
 	}
 	return retorno;
-
-
-
 }
+
+
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_getEstadoNum(Afiche* this,int* estadoNum){
 
 	int retorno = -1;
@@ -410,10 +478,16 @@ int afiche_getEstadoNum(Afiche* this,int* estadoNum){
 		*estadoNum = this->estadoNum;
 	}
 	return retorno;
-
-
-
 }
+
+
+
+/**
+ * \brief Se obtendrá el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id char* Puntero al ID que se obtendrá del empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
 int afiche_getEstadoNumTxt(Afiche* this,char* estadoNum){
 
 
@@ -427,7 +501,6 @@ int afiche_getEstadoNumTxt(Afiche* this,char* estadoNum){
 		}
 	}
 	return retorno;
-
 }
 
 
@@ -494,46 +567,7 @@ static int esNumerica(char* cadena, int limite)
 	return retorno;
 }
 
-/**
- * \brief Imprime los datos de un Empleado
- * \param pElemento Puntero al Empleado que se busca imprimir
- * \return Retorna 0 (EXITO) y -1 (ERROR)
- *
- */
-/*
-int afiche_imprimir(Afiche* this)
-{
-	int retorno=-1;
-	char idAux[LEN_AUX];
-	char nombreArchivo[LEN_AUX];
-	char cantidadAfiches[LEN_AUX];
-	char zona[NOMBRE_LEN];
-	char estado[LEN_AUX];
-	char idCliente[LEN_AUX];
 
-	if(this != NULL)
-	{
-		retorno = 0;
-		afiche_getIdTxt(this,idAux);
-		afiche_getNombreArchivo(this,nombreArchivo);
-		afiche_getCantidadAfiches(this, cantidadAfiches);
-		afiche_getZona(this, zona);
-		afiche_getEstado(this, estado);
-		afiche_getIdCliente(this, idCliente);
-
-
-		printf("ID: %10s - Id Cliente %10s  - Nombre archivos %10s - Cantidad Afiches: %10s - Zona %10s - Estado %10s\n",idAux
-																	   ,idCliente
-																	   ,nombreArchivo
-																	   ,cantidadAfiches
-																	   ,zona
-																	   ,estado);
-		retorno = 0;
-	}
-	return retorno;
-}
-
-*/
 
 /**
  * \brief Imprime los datos de un Empleado
@@ -563,14 +597,10 @@ int afiche_imprimirGral(void* this)
 		afiche_getIdCliente(this, &idCliente);
 
 		if(strncmp(estado,"1",sizeof(estado)) == 0){
-
 			strncpy(estado,"A Cobrar",sizeof(estado));
 		}else{
-
 			strncpy(estado,"Cobrado",sizeof(estado));
-
 		}
-
 		printf("ID: %10s - Id Cliente %10d  - Nombre archivos %10s - Cantidad Afiches: %10d - Zona %10s - Estado %10s\n",idAux
 																			   ,&idCliente
 																			   ,nombreArchivo
@@ -661,6 +691,14 @@ int afiche_ordenarID(void* auxUno, void* auxDos)
 
 
 
+/** \brief Reduce la lista a un Entero
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param int * prResutlado -> puntero donde devuelve el valor final
+ * \param int idCliente -> idcliente al cual se le quiere hacer el rduce
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                               ( 0) Si ok
+ */
 
 
 int calcularElementosAfiches(void* auxElemento)
@@ -727,6 +765,66 @@ int afiche_imprimir(Afiche* this)
 	return retorno;
 }
 
+
+
+
+
+/**
+ * \brief Imprime los datos de un Empleado
+ * \param pElemento Puntero al Empleado que se busca imprimir
+ * \return Retorna 0 (EXITO) y -1 (ERROR)
+ *
+ */
+int afiche_imprimirPorId(Afiche* this, int idAfiche)
+{
+	int retorno=-1;
+	int idAux;
+	char idCliente[LEN_AUX];
+	char nombreArchivo[LEN_AUX];
+	char cantidadAfiches[LEN_AUX];
+	char zona[LEN_AUX];
+	int estado;
+	char estadoOut[LEN_AUX];
+
+	if (afiche_getId(this, &idAux)==0 && idAux == idAfiche)
+	{
+		retorno = 0;
+		afiche_getId(this, &idAux);
+		afiche_getIdClienteTxt(this, idCliente);
+		afiche_getNombreArchivo(this, nombreArchivo);
+		afiche_getCantidadAfichesTxt(this, cantidadAfiches);
+		afiche_getZona(this, zona);
+		afiche_getEstadoNum(this, &estado);
+
+		if(estado==0){
+			strncpy(estadoOut,"A Cobrar",sizeof(estadoOut));
+		}else{
+
+			strncpy(estadoOut,"Cobrado",sizeof(estadoOut));
+		}
+		printf("ID: %10d - Id Cliente: %10s - Nombre Afiche: %10s - Cantidad Afiche: %10s - Zona: %10s - Estado:  %10s \n",idAux
+																	   ,idCliente
+																	   ,nombreArchivo
+																	   ,cantidadAfiches
+																	   ,zona
+																	   ,estadoOut);
+		retorno = 0;
+	}
+	return retorno;
+}
+
+
+
+
+
+/** \brief Reduce la lista a un Entero
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param int * prResutlado -> puntero donde devuelve el valor final
+ * \param int idCliente -> idcliente al cual se le quiere hacer el rduce
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                               ( 0) Si ok
+ */
 int afiche_imprimirUno(void* this)
 {
 	int retorno=-1;
@@ -777,6 +875,18 @@ int afiche_imprimirUno(void* this)
 	return retorno;
 }
 
+
+
+
+/** \brief Reduce la lista a un Entero
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param int * prResutlado -> puntero donde devuelve el valor final
+ * \param int idCliente -> idcliente al cual se le quiere hacer el rduce
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                               ( 0) Si ok
+ */
+
 int afiche_FiltrarNoCobrados(LinkedList* pArrayListAfiches){
 
 	int retorno = -1;
@@ -806,26 +916,87 @@ int afiche_FiltrarNoCobrados(LinkedList* pArrayListAfiches){
 }
 
 
+/** \brief Reduce la lista a un Entero
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param int * prResutlado -> puntero donde devuelve el valor final
+ * \param int idCliente -> idcliente al cual se le quiere hacer el rduce
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                               ( 0) Si ok
+ */
 
 int ventas_findMaxAfiches (LinkedList * pArrayListVentas)
 {
 	int retorno =-1;
 	int maxAfiches;
 	int estado;
-	int afichesAux;
+	int cantidadAfichesAux;
+	int idAux;
 	Afiche * ventasAux;
 	for (int i = 0; i<ll_len(pArrayListVentas);i++)
 	{
 		ventasAux = ll_get(pArrayListVentas, i);
-		afiche_getCantidadAfiches(ventasAux, &afichesAux);
+		afiche_getCantidadAfiches(ventasAux, &cantidadAfichesAux);
 		afiche_getEstadoNum(ventasAux, &estado);
-		if (i == 0 || (estado ==COBRADA &&afichesAux>=maxAfiches))
+		if ((estado > 0 && cantidadAfichesAux>=maxAfiches))
 		{
-			maxAfiches = afichesAux;
-			retorno = i;
+			maxAfiches = cantidadAfichesAux;
+			//retorno = i+1;
+			afiche_getId(ventasAux, &idAux);
+			retorno = idAux;
 		}
 	}
 	return retorno;
 }
+
+
+
+
+
+
+
+/**
+ * \brief Verifica si existe un cuit dado en la lista de clientes
+ * \param listClient LinkedList* puntero al listado de clientes
+ * \param cuit char* cuit a buscar si ya existe
+ * \return Return (0) FALSE si no existe (1) TRUE si lo encontro
+ */
+int afiche_IdCobradoEnLista(LinkedList* listaAfiches, int id)
+{
+	int retortno = -1;
+	int i;
+	int bufferId;
+	Afiche* pAfiche;
+
+	if(listaAfiches !=  NULL)
+	{
+		for (i = 0; i < ll_len(listaAfiches); i++)
+		{
+			pAfiche = (Afiche*)ll_get(listaAfiches,i);
+			if(pAfiche!= NULL)
+			{
+				afiche_getId(pAfiche,&bufferId);
+
+				if (id == bufferId && pAfiche->estadoNum == 0)
+				{
+					retortno = 0;
+					break;
+				}
+			}
+		}
+	}
+	return retortno;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 

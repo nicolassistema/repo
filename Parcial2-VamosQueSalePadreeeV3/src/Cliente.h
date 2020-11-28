@@ -51,5 +51,6 @@ int compararSueldoPorValor(void* auxElemento, int valor,int index);
 int calcularElementos(void* auxElemento);
 int cli_cuitIsInList(LinkedList* listClient, char* cuit);
 int cli_IdIsInList(LinkedList* listClient, int id);
+int cliente_imprimirPorId(void* this, int idCliente);
 
 #endif // cliente_H_INCLUDED

@@ -344,6 +344,9 @@ static int getCuit(char* pResultado, int longitud)
     return retorno;
 }
 
+
+
+
 /**
  * \brief Verifica si la cadena ingresada es un nombre valido
  * \param cadena Cadena de caracteres a ser analizada
@@ -398,24 +401,115 @@ int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeErr
 	return retorno;
 }
 
-int utn_getCuit(char* pResultado, int longitud,char* mensaje, char* mensajeError, int reintentos)
-{
+
+
+
+static int myGets(char* cadena, int longitud){
+	int retorno = -1; //ERROR
 	char bufferString[4096];
-	int retorno = -1;
-	while(reintentos>=0)
+
+	if(cadena != NULL && longitud > 0)
 	{
-		reintentos--;
-		printf("%s",mensaje);
-		if(getCuit(bufferString,sizeof(bufferString)) == 0 && strnlen(bufferString,sizeof(bufferString)) < longitud )
+		fflush(stdin);
+		if(fgets(bufferString,sizeof(bufferString),stdin) != NULL)
 		{
-			strncpy(pResultado,bufferString,longitud);
-			retorno = 0;
-			break;
+			if(bufferString[strnlen(bufferString,sizeof(bufferString))-1] == '\n')
+			{
+				bufferString[strnlen(bufferString,sizeof(bufferString))-1] = '\0';
+			}
+			if(strlen(bufferString) <= longitud)
+			{
+				strncpy(cadena,bufferString,longitud);
+				retorno = 1; //EXITO
+			}
+
 		}
-		printf("%s",mensajeError);
+
 	}
 	return retorno;
 }
+
+
+
+
+
+/** \brief checks if the string is made up of just numbers, also checks the amount of '-' (max 2)
+* position of the array
+* \param char * cadena -> Pointer to the array
+* \param limite, len of the array
+* return 0 if success otherwise 1
+*/
+
+static int esCuit(char*cadena, int limite) {
+	int retorno = 1;
+	int contador = 0;
+	int i ;
+	for (i = 0 ; i<=limite && cadena[i] != '\0'; i++)
+	{
+		if	(cadena[i]< '0' || cadena[i] > '9')
+		{
+			if (cadena[i] == '-')
+			{
+				contador++;
+				if (contador>2)
+				{
+					retorno = 0;
+					break;
+				}
+
+			}
+			else
+			{
+				retorno = 0;
+				break;
+			}
+
+
+		}
+	}
+	return retorno;
+}
+
+
+/** \brief gets a cuit from the user
+* position of the array
+* \param char * pResutlado -> Pointer where to save the result
+* \param char * mensaje -> message to show
+* \param char * mesajeError -> message to show in case of error.
+* \param int len -> max size of the result
+t
+* return 0 if success otherwise 1
+*/
+
+int utn_getCuit (char * pResultado, int len, char *mensaje, char* mensajeError, int intentos){
+	int retorno = -1 ;
+	char buffer[4096];
+	if (pResultado != NULL && len>0 && mensaje != NULL && mensajeError != NULL  && intentos>=0) {
+		do {
+			printf("%s\n", mensaje);
+			if ( myGets(buffer,sizeof(buffer)) && esCuit(buffer,len) )
+			{
+				retorno = 0;
+				strncpy(pResultado,buffer,len);
+				break;
+			}
+			else
+			{
+			printf("%s \n", mensajeError);
+			intentos--;
+			}
+		} while (intentos >= 0 );
+
+		}
+
+
+
+	return retorno;
+}
+
+
+
+
 
 
 /**

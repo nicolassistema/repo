@@ -632,31 +632,8 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
     	}
 	}
     return listaFiltrada;
-
 }
 
-/*int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg)
-{
-	int returnAux = -1;
-	void* pAux;
-	int i;
-
-	if (this != NULL && pFunc != NULL)
-	{
-		for (i = ll_len(this) - 1; i >= 0; i--)
-		{
-			pAux = ll_get(this, i);
-			if (pAux != NULL)
-			{
-				if (pFunc(pAux,arg) == 0)
-				{
-					returnAux = ll_remove(this, i);
-				}
-			}
-		}
-	}
-	return returnAux;
-}*/
 
 
 /** \brief Cuenta los elementos de la lista utilizando la funcion criterio recibida como parametro
@@ -681,10 +658,8 @@ int ll_count(LinkedList* this, int (*pFunc)(void*))
 					contador++;
 				}
 			}
-
 	}
     return contador;
-
 }
 
 
@@ -742,6 +717,16 @@ int ll_reduce(LinkedList* this, int (*pFunc)(void*, int, int))
 }
 
 
+
+/** \brief Reduce la lista a un Entero
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param int * prResutlado -> puntero donde devuelve el valor final
+ * \param int idCliente -> idcliente al cual se le quiere hacer el rduce
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                               ( 0) Si ok
+ */
+
 int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg)
 {
 	int returnAux = -1;
@@ -766,30 +751,8 @@ int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg)
 }
 
 
-int ll_reduceInt2(LinkedList* this,int (*pFunc)(void*,void*),void* arg)
-{
-	void *pAux;
-	int i;
-	int acum = 0;
 
-	if (this != NULL && pFunc != NULL)
-	{
-		for (i = 0; i < ll_len(this); i++)
-		{
-			pAux = ll_get(this, i);
-			if (pAux != NULL)
-			{
-				acum = acum + pFunc(pAux,arg);
-			}
-		}
-	}
-	return acum;
-}
-
-
-
-
-int ll_mapAndBreak(LinkedList* this, int (*pFunc)(void*,int),int id)
+int ll_mapAndBreak(LinkedList* this, int (*pFunc)(void*, int),int id)
 {
     int returnAux =-1;
     int len = ll_len(this);
