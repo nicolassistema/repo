@@ -1,8 +1,0 @@
-1,1,dsdsds,63,caba,1
-2,3,Hounsom,3,caba,0
-3,3,Hounsom,3,caba,1
-4,2,Paulson,1,caba,1
-5,2,Vanyushin,5,caba,1
-6,3,UUUUUU,40,CABA,0
-7,2,sasaasasa,36,caba,0
-8,2,JAJAJAJA,50,CABA,0

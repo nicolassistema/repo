@@ -32,13 +32,13 @@ int controller_loadFromTextCliente(char* path , LinkedList* pArrayListCliente)
 		pArch = fopen(path, "rw");
 		if(pArch != NULL && parser_ClienteFromText(pArch,pArrayListCliente)==0)
 		{
-			printf("Archivo cargado existosamente\n");
+			printf("clientes cargados existosamente\n");
 			retorno = 0;
 			fclose(pArch);
 		}
 		else
 
-			printf("El archivo no puede abrirse\n\n");
+			printf("El archivo no puede abrirse o esta vacio\n\n");
 	}
 
 	return retorno;
@@ -60,7 +60,7 @@ int controller_loadFromTextAfiche(char* path , LinkedList* pArrayListAfiche)
 		}
 		else
 
-			printf("El archivo no puede abrirse\n");
+			printf("El archivo no puede abrirse o esta vacio\n\n");
 	}
 
 	return retorno;
@@ -870,6 +870,8 @@ static int idMaximoEncontrado(LinkedList* pArrayListCliente, int* idMaximo)
 			}
 
 		}
+
+
 		*idMaximo = idAuxMaximo;
 	}
 	return retorno;

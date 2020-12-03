@@ -53,7 +53,7 @@ int parser_ClienteFromText(FILE* pFile , LinkedList* pArrayListCliente)
 					}
 				}while(!feof(pFile));
 		}
-		printf("Se cargaron %d empleados\n",contadorEClientes);
+		printf("Se cargaron %d clientes\n",contadorEClientes);
 		return retorno;
 }
 

@@ -48,7 +48,7 @@ int main(void) {
 	                case 1:
 	                	if(controller_addCliente(listaClientes)!=-1)
 	                	 	 {
-	                			controller_saveAsTextCliente("Clientes.txt",listaClientes);
+	                			controller_saveAsTextCliente("Cliente.txt",listaClientes);
 	                			printf("Archivo ya cargado\n");
 	                	 	 }
 	                    break;

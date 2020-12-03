@@ -145,10 +145,10 @@ int informes_encontrarMayorOMenor(LinkedList* pArrayListVentas,LinkedList* pArra
 	int idClienteAux;
 	int cantidadAfiches;
 	int mayorAfiches;
-	for (int i = 0; i<ll_len(pArrayListVentas); i++)
+	for (int i = 0; i<ll_len(pArrayListVentas); i++)//recorro la lista de afiches
 	{
-		ventasAux = ll_get(pArrayListVentas, i);
-		afiche_getIdCliente(ventasAux, &idClienteAux);
+		ventasAux = ll_get(pArrayListVentas, i);//obtengo un afiche elemento por el indice de for
+		afiche_getIdCliente(ventasAux, &idClienteAux);//obtengo el id del cliente por medio del elemento
 		ll_reduceIntbyID(pArrayListVentas, informes_cantidadAfichesporId, &cantidadAfiches, idClienteAux);
 		if (mayor == 0)
 		{
