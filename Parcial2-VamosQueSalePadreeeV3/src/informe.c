@@ -74,10 +74,10 @@ int informes_encontrarClienteConMasVentas (LinkedList*pArrayListVentas,LinkedLis
 	int idClienteAux;
 	if (pArrayListClientes!=NULL && pArrayListVentas!=NULL)
 	{
-		indice =informes_encontrarMayorOMenor(pArrayListVentas,pArrayListClientes,0);
+		indice =informes_encontrarMayorOMenor(pArrayListVentas,pArrayListClientes,0);//obtiene el indice
 		Afiche * ventaAux = ll_get(pArrayListVentas, indice);
 		afiche_getIdCliente(ventaAux, &idClienteAux);
-		ll_mapAndBreak(pArrayListClientes,cliente_imprimirPorId,idClienteAux);
+		ll_mapAndBreak(pArrayListClientes,cliente_imprimirPorId,idClienteAux);// indice a buscar donde el map se detendrà al encontrarlo en la lista
 	}
 return retorno;
 }
@@ -145,12 +145,12 @@ int informes_encontrarMayorOMenor(LinkedList* pArrayListVentas,LinkedList* pArra
 	int idClienteAux;
 	int cantidadAfiches;
 	int mayorAfiches;
-	for (int i = 0; i<ll_len(pArrayListVentas); i++)//recorro la lista de afiches
+	for (int i = 0; i<ll_len(pArrayListVentas); i++)				//recorro la lista de afiches
 	{
-		ventasAux = ll_get(pArrayListVentas, i);//obtengo un afiche elemento por el indice de for
-		afiche_getIdCliente(ventasAux, &idClienteAux);//obtengo el id del cliente por medio del elemento
-		ll_reduceIntbyID(pArrayListVentas, informes_cantidadAfichesporId, &cantidadAfiches, idClienteAux);
-		if (mayor == 0)
+		ventasAux = ll_get(pArrayListVentas, i);					//obtengo un afiche elemento por el indice de for
+		afiche_getIdCliente(ventasAux, &idClienteAux);				//obtengo el id del cliente por medio del elemento
+		ll_reduceIntbyID(pArrayListVentas, informes_cantidadAfichesporId, &cantidadAfiches, idClienteAux);// obtengo la cantidad de afiches por cliente
+		if (mayor == 0)												//si por paramtro entro 0, esta bucanco el mayor ventas
 		{
 			if (i==0 ||  (cantidadAfiches!=0 && mayorAfiches < cantidadAfiches) )
 			{
@@ -158,7 +158,7 @@ int informes_encontrarMayorOMenor(LinkedList* pArrayListVentas,LinkedList* pArra
 				retorno = i;
 			}
 		}
-		else
+		else//sino el menor
 		{
 			if (i==0 ||  (cantidadAfiches!=0 && mayorAfiches > cantidadAfiches) )
 			{

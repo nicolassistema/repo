@@ -13,5 +13,6 @@ int informes_encontrarMayorOMenor(LinkedList* pArrayListVentas,LinkedList* pArra
 int informes_encontrarClienteConMasVentas (LinkedList*pArrayListVentas,LinkedList*pArrayListClientes);
 int informes_encontrarClienteConMenosVentas (LinkedList*pArrayListVentas,LinkedList*pArrayListClientes);
 int informes_cantidadAfichesporId(void*pElemento, int id);
+int ll_reduceIntbyID(LinkedList* this, int (*pFunc)(void*,int), int * pResultado, int idCliente);
 
 #endif /* INFORME_H_ */

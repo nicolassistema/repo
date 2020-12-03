@@ -62,5 +62,6 @@ int afiche_imprimirUno(void* this);
 int afiche_FiltrarNoCobrados(LinkedList* pArrayListAfiches);
 int afiche_imprimirPorId(Afiche* this, int idAfiche);
 int afiche_IdCobradoEnLista(LinkedList* listaAfiches, int id);
+int ventas_findMaxAfiches (LinkedList * pArrayListVentas);
 
 #endif // afiche_H_INCLUDED

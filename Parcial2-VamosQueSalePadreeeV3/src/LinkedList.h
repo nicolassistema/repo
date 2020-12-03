@@ -58,3 +58,5 @@ int ll_count(LinkedList* this, int (*pFunc)(void*));
 int ll_countAcumulador(LinkedList* this, int (*pFunc)(void*));
 int ll_reduce(LinkedList* this, int (*pFunc)(void*, int, int));
 int ll_reduceInt2(LinkedList* this,int (*pFunc)(void*,void*),void* arg);
+int ll_reduceIntbyID(LinkedList* this, int (*pFunc)(void*,int), int * pResultado, int idCliente);
+int ll_mapAndBreak(LinkedList* this, int (*pFunc)(void*, int),int id);
