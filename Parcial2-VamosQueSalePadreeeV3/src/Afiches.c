@@ -188,7 +188,7 @@ int afiche_getNombreArchivo(Afiche* this,char* nombreArchivo)
 		retorno = 0;
 		strncpy(nombreArchivo,this->nombreArchivo,NOMBRE_LEN);
 
-		printf("\nEL NOMBRE DEL ARCHIVO: %s\n",nombreArchivo);
+
 
 	}
 	return retorno;
