@@ -172,15 +172,27 @@ int afiche_setNombreArchivo(Afiche* this,char* nombreArchivo){
 
 
 
+/**
+ * \brief Se cambiará el id del empleado pasado por parámetro
+ * \param this Employee* Puntero al empleado
+ * \param id int ID que se cargará al empleado mencionado
+ * \return int (-1) ERROR y (0) OK
+ */
+
+
 int afiche_getNombreArchivo(Afiche* this,char* nombreArchivo)
 {
 	int retorno = -1;
 	if(this != NULL && nombreArchivo != NULL)
 	{
 		retorno = 0;
-		strncpy(nombreArchivo,this->nombreArchivo,LEN_AUX);
+		strncpy(nombreArchivo,this->nombreArchivo,NOMBRE_LEN);
+
+		printf("\nEL NOMBRE DEL ARCHIVO: %s\n",nombreArchivo);
+
 	}
 	return retorno;
+
 }
 
 /**

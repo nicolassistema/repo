@@ -96,7 +96,7 @@ int informes_encontrarClienteConMenosVentas (LinkedList*pArrayListVentas,LinkedL
 	int retorno = -1;
 	int indice;
 	int idClienteAux;
-	indice =informes_encontrarMayorOMenor(pArrayListVentas,pArrayListClientes,0);
+	indice =informes_encontrarMayorOMenor(pArrayListVentas,pArrayListClientes,1);
 	Afiche * ventaAux = ll_get(pArrayListVentas, indice);
 	afiche_getIdCliente(ventaAux, &idClienteAux);
 	ll_mapAndBreak(pArrayListClientes,cliente_imprimirPorId,idClienteAux);

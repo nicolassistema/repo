@@ -52,5 +52,6 @@ int calcularElementos(void* auxElemento);
 int cli_cuitIsInList(LinkedList* listClient, char* cuit);
 int cli_IdIsInList(LinkedList* listClient, int id);
 int cliente_imprimirPorId(void* this, int idCliente);
+int cliente_imprimir2(Cliente* this);
 
 #endif // cliente_H_INCLUDED

@@ -61,31 +61,27 @@ int ll_len(LinkedList* this)
                         (pNode) Si funciono correctamente
  *
  */
+
+
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
-	Node* pNode = NULL;
-	int index;
-	if(this != NULL && nodeIndex >= 0 && nodeIndex < ll_len(this))
-	{
-		pNode = this->pFirstNode;
-		index = 0;
-		do
-		{
-			if(index == nodeIndex)
-			{
-				break;
-			}
-			else
-			{
-				pNode = pNode->pNextNode;
-				index++;
-			}
+    Node* pNode = NULL;
+    int i;
 
-		}while(pNode != NULL);
+    if(this!=NULL && nodeIndex>-1 && nodeIndex<ll_len(this))
+    {
+        pNode = this->pFirstNode;
 
-	}
+        for(i=0; i<nodeIndex; i++)
+        {
+            pNode = pNode->pNextNode;
+        }
+    }
     return pNode;
 }
+
+
+
 
 /** \brief  Permite realizar el test de la funcion getNode la cual es privada
  *
@@ -110,6 +106,7 @@ Node* test_getNode(LinkedList* this, int nodeIndex)
                         ( 0) Si funciono correctamente
  *
  */
+/*
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
@@ -150,6 +147,37 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     }
     return returnAux;
 }
+
+*/
+
+static int addNode(LinkedList* this, int nodeIndex,void* pElement)
+{
+    int returnAux = -1;
+    Node * nodoNuevo = (Node*)malloc(sizeof(Node));
+    Node * nodoPrevio;
+    if (this!=NULL && nodoNuevo!=NULL && nodeIndex>=0 && nodeIndex<=ll_len(this))
+    {
+    	nodoNuevo->pElement=pElement;
+		if (nodeIndex==0)
+		{
+			nodoNuevo->pNextNode = this->pFirstNode;
+			this->pFirstNode=nodoNuevo;
+		}
+		else
+		{
+			nodoPrevio=getNode(this, nodeIndex-1);
+			nodoNuevo->pNextNode=nodoPrevio->pNextNode;
+			nodoPrevio->pNextNode=nodoNuevo;
+		}
+		this->size++;
+		returnAux=0;
+    }
+    return returnAux;
+}
+
+
+
+
 
 /** \brief Permite realizar el test de la funcion addNode la cual es privada
  *
@@ -752,6 +780,13 @@ int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg)
 
 
 
+/** \brief Recorre los elementos de la lista
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param int indice -> indice a buscar donde el map se detendrà al encontrarlo en la lista
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                               ( 0) Si ok
+ */
 int ll_mapAndBreak(LinkedList* this, int (*pFunc)(void*, int),int id)
 {
     int returnAux =-1;
@@ -803,3 +838,4 @@ int ll_reduceIntbyID(LinkedList* this, int (*pFunc)(void*,int), int * pResultado
     }
     return returnAux;
 }
+

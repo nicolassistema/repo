@@ -9,3 +9,4 @@
 9,2,dsdsds,2,caba,0
 10,2,jjjjjjjj,1,caba,0
 11,3,dsasd,23,caba,0
+12,6,UUUUUUU,50,CABA,1

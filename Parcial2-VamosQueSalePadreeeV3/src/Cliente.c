@@ -292,14 +292,6 @@ int cliente_setCuit(Cliente* this,char* cuit)
 }
 
 
-/**
- * \brief Se cambiarán las horas trabajadas del empleado pasado por parámetro
- * \param this Employee* Puntero al empleado
- * \param horasTrabajadas char* Puntero a la cantidad de horas trabajadas que se cargará en el empleado mencionado
- * \return int (-1) ERROR y (0) OK
- */
-
-
 
 /**
  * \brief Se obtendrán las horas trabajadas del empleado pasado por parámetro
@@ -457,6 +449,7 @@ int cliente_imprimir(Cliente* this)
 	char apellido[LEN_AUX];
 	char cuit[LEN_AUX];
 
+
 	if(this != NULL)
 	{
 		retorno = 0;
@@ -465,7 +458,7 @@ int cliente_imprimir(Cliente* this)
 		cliente_getApellido(this, apellido);
 		cliente_getCuit(this, cuit);
 
-		printf("ID: %10s - Nombre %10s - Apellido: %10s - Cuit %10s\n",idAux
+		printf("ID: %10s - Nombre %10s - Apellido: %10s - Cuit %10s \n",idAux
 																	   ,nombre
 																	   ,apellido
 																	   ,cuit);
@@ -473,6 +466,47 @@ int cliente_imprimir(Cliente* this)
 	}
 	return retorno;
 }
+
+
+
+
+/**
+ * \brief Imprime los datos de un Empleado
+ * \param pElemento Puntero al Empleado que se busca imprimir
+ * \return Retorna 0 (EXITO) y -1 (ERROR)
+ *
+ */
+int cliente_imprimir2(Cliente* this)
+{
+	int retorno=-1;
+	char idAux[LEN_AUX];
+	char nombre[LEN_AUX];
+	char apellido[LEN_AUX];
+	char cuit[LEN_AUX];
+	char cantidad[LEN_AUX];
+
+	if(this != NULL)
+	{
+		retorno = 0;
+		cliente_getIdTxt(this,idAux);
+		cliente_getNombre(this,nombre);
+		cliente_getApellido(this, apellido);
+		cliente_getCuit(this, cuit);
+		cliente_getCantidadAfichesClienteTxt(this,cantidad);
+
+
+
+		printf("ID: %10s - Nombre %10s - Apellido: %10s - Cuit %10s - Cant. de afiches %10s\n",idAux
+																	   ,nombre
+																	   ,apellido
+																	   ,cuit
+																	   ,cantidad);
+		retorno = 0;
+	}
+	return retorno;
+}
+
+
 
 
 

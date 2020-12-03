@@ -380,7 +380,9 @@ int controller_InfoACobrar(LinkedList* pArrayListAfiche, LinkedList* pArrayListC
 
 
 			}
-		}controller_ListCliente(newList2);
+		}
+		//controller_ListCliente(newList2);
+		ll_map(newList2,cliente_imprimir2);
 			controller_saveAsTextCliente("Clientes_ACobrar.txt",newList2);
 		retorno = 0;
 		}
@@ -407,13 +409,13 @@ int controller_InfoCobrado(LinkedList* pArrayListAfiche, LinkedList* pArrayListC
 	if(pArrayListAfiche != NULL && pArrayListCliente != NULL)
 		{
 
-		for(i=0;i<ll_len(pArrayListCliente);i++)
+		for(i=0;i<ll_len(pArrayListCliente);i++)//recorro la lista de clientes
 		{
-			auxCliente = (Cliente*)ll_get(newList,i);
+			auxCliente = (Cliente*)ll_get(newList,i);//obternos cliente por indice
 			auxiliar=0;
-			for(j=0;j<ll_len(pArrayListAfiche); j++)
+			for(j=0;j<ll_len(pArrayListAfiche); j++)//recorro la lista de afiches
 			{
-				auxAfiche = (Afiche*)ll_get(pArrayListAfiche,j);
+				auxAfiche = (Afiche*)ll_get(pArrayListAfiche,j);//obtengo afiche por indice
 				if(auxCliente->id == auxAfiche->idCliente)
 				{
 					afiche_getEstadoNum(auxAfiche, &estadoNumAux);
@@ -424,17 +426,15 @@ int controller_InfoCobrado(LinkedList* pArrayListAfiche, LinkedList* pArrayListC
 					}
 				}
 			}
-			cliente_setCantidadAfichesCliente(auxCliente, auxiliar);
+			cliente_setCantidadAfichesCliente(auxCliente, auxiliar);//Seteo la candidad de afiches cobrados en cada cliente
 			if(auxiliar>0)
 						{
 							ll_add(newList2,auxCliente);
-
-
 						}
-
-
-		}controller_ListCliente(newList2);
-			controller_saveAsTextCliente("Clientes_Cobrados.txt",newList2);
+			}
+		ll_map(newList2,cliente_imprimir2);
+		//	controller_ListCliente(newList2);//listo clientes  conbrados
+			controller_saveAsTextCliente("Clientes_Cobrados.txt",newList2); //guardo lista de clientes con la cantidad de cobrados cada uno en txt
 		retorno = 0;
 		}
 	return retorno;
