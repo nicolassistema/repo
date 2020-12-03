@@ -40,10 +40,9 @@ int main(void) {
 	        						  "5. Generar informe de cobros\n"
 	        						  "6. Generar informe de deudas\n"
 	        						  "7. Generar estadísticas\n"
-	        			 	 	 	  "8. Probando\n"
-	        			 	 	 	  "9. Salir\n",
+	        			 	 	 	  "8. Salir\n",
 	    							  "Opción inválida\n",
-	    							  1,9,2);
+	    							  1,8,2);
 	            switch(opcion)
 	            {
 	                case 1:
@@ -113,15 +112,9 @@ int main(void) {
 
 	                    break;
 
-	                case 8:
-
-
-
-	                	                    break;
-
 
 	            }
-	        }while(opcion != 9);
+	        }while(opcion != 8);
 	    return 0;
 	    return EXIT_SUCCESS;
 	}
